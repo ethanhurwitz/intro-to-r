@@ -7,6 +7,7 @@ rmd_files:
 - RBasics1.Rmd
 - RBasics2.Rmd
 - RBasics3_new.Rmd
+- Projects.Rmd
 # - RBasics3.Rmd
 # - RBasics4.Rmd
 - Visualizations1.Rmd
@@ -19,7 +20,6 @@ rmd_files:
 - Manip3.Rmd
 - Manip4.Rmd
 - DataTransformation.Rmd
-- Projects.Rmd
 language:
   ui:
     chapter_name: "Chapter "
