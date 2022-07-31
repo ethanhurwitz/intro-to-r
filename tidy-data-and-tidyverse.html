@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 11 Tidy Data and Tidyverse | Introduction to R</title>
+<title>Chapter 12 Tidy Data and Tidyverse | Introduction to R</title>
 <meta name="author" content="Ethan Hurwitz">
-<meta name="description" content="11.1 Tidy Data You can represent the same data in many different ways. In almost all cases, the best way to do so is to make sure your data is tidy. In tidy data, each row corresponds to a unique...">
+<meta name="description" content="12.1 Tidy Data You can represent the same data in many different ways. In almost all cases, the best way to do so is to make sure your data is tidy. In tidy data, each row corresponds to a unique...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 11 Tidy Data and Tidyverse | Introduction to R">
+<meta property="og:title" content="Chapter 12 Tidy Data and Tidyverse | Introduction to R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://ethanhurwitz.github.io/intro-to-r/tidy-data-and-tidyverse.html">
-<meta property="og:description" content="11.1 Tidy Data You can represent the same data in many different ways. In almost all cases, the best way to do so is to make sure your data is tidy. In tidy data, each row corresponds to a unique...">
+<meta property="og:description" content="12.1 Tidy Data You can represent the same data in many different ways. In almost all cases, the best way to do so is to make sure your data is tidy. In tidy data, each row corresponds to a unique...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 11 Tidy Data and Tidyverse | Introduction to R">
-<meta name="twitter:description" content="11.1 Tidy Data You can represent the same data in many different ways. In almost all cases, the best way to do so is to make sure your data is tidy. In tidy data, each row corresponds to a unique...">
+<meta name="twitter:title" content="Chapter 12 Tidy Data and Tidyverse | Introduction to R">
+<meta name="twitter:description" content="12.1 Tidy Data You can represent the same data in many different ways. In almost all cases, the best way to do so is to make sure your data is tidy. In tidy data, each row corresponds to a unique...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -47,21 +47,21 @@
 <li><a class="" href="why-use-r.html"><span class="header-section-number">2</span> Why use R?</a></li>
 <li><a class="" href="r-coding-basics.html"><span class="header-section-number">3</span> R Coding Basics</a></li>
 <li><a class="" href="using-r-effectively.html"><span class="header-section-number">4</span> Using R Effectively</a></li>
+<li><a class="" href="projects-and-organization.html"><span class="header-section-number">5</span> Projects and Organization</a></li>
 <li class="book-part">Visualizations</li>
-<li><a class="" href="intro-to-ggplot2.html"><span class="header-section-number">5</span> Intro to ggplot2</a></li>
-<li><a class="" href="aesthetics.html"><span class="header-section-number">6</span> Aesthetics</a></li>
-<li><a class="" href="different-geoms-and-when-to-use-them.html"><span class="header-section-number">7</span> Different Geoms and When To Use Them</a></li>
-<li><a class="" href="customization.html"><span class="header-section-number">8</span> Customization</a></li>
-<li><a class="" href="color-theory.html"><span class="header-section-number">9</span> Color Theory</a></li>
+<li><a class="" href="intro-to-ggplot2.html"><span class="header-section-number">6</span> Intro to ggplot2</a></li>
+<li><a class="" href="aesthetics.html"><span class="header-section-number">7</span> Aesthetics</a></li>
+<li><a class="" href="different-geoms-and-when-to-use-them.html"><span class="header-section-number">8</span> Different Geoms and When To Use Them</a></li>
+<li><a class="" href="customization.html"><span class="header-section-number">9</span> Customization</a></li>
+<li><a class="" href="color-theory.html"><span class="header-section-number">10</span> Color Theory</a></li>
 <li class="book-part">Data Manipulation</li>
-<li><a class="" href="control-flow.html"><span class="header-section-number">10</span> Control Flow</a></li>
-<li><a class="active" href="tidy-data-and-tidyverse.html"><span class="header-section-number">11</span> Tidy Data and Tidyverse</a></li>
-<li><a class="" href="basic-wrangling.html"><span class="header-section-number">12</span> Basic Wrangling</a></li>
-<li><a class="" href="advanced-wrangling.html"><span class="header-section-number">13</span> Advanced Wrangling</a></li>
-<li><a class="" href="summarizing-data.html"><span class="header-section-number">14</span> Summarizing Data</a></li>
-<li><a class="" href="text-cleaning.html"><span class="header-section-number">15</span> Text Cleaning</a></li>
-<li><a class="" href="data-transformation.html"><span class="header-section-number">16</span> Data Transformation</a></li>
-<li><a class="" href="projects-and-organization.html"><span class="header-section-number">17</span> Projects and Organization</a></li>
+<li><a class="" href="control-flow.html"><span class="header-section-number">11</span> Control Flow</a></li>
+<li><a class="active" href="tidy-data-and-tidyverse.html"><span class="header-section-number">12</span> Tidy Data and Tidyverse</a></li>
+<li><a class="" href="basic-wrangling.html"><span class="header-section-number">13</span> Basic Wrangling</a></li>
+<li><a class="" href="advanced-wrangling.html"><span class="header-section-number">14</span> Advanced Wrangling</a></li>
+<li><a class="" href="summarizing-data.html"><span class="header-section-number">15</span> Summarizing Data</a></li>
+<li><a class="" href="text-cleaning.html"><span class="header-section-number">16</span> Text Cleaning</a></li>
+<li><a class="" href="data-transformation.html"><span class="header-section-number">17</span> Data Transformation</a></li>
 </ul>
 
         <div class="book-extra">
@@ -71,11 +71,11 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="tidy-data-and-tidyverse" class="section level1">
 <h1>
-<span class="header-section-number">11</span> Tidy Data and Tidyverse<a class="anchor" aria-label="anchor" href="#tidy-data-and-tidyverse"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12</span> Tidy Data and Tidyverse<a class="anchor" aria-label="anchor" href="#tidy-data-and-tidyverse"><i class="fas fa-link"></i></a>
 </h1>
 <div id="Tidy-Data" class="section level2">
 <h2>
-<span class="header-section-number">11.1</span> Tidy Data<a class="anchor" aria-label="anchor" href="#Tidy-Data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12.1</span> Tidy Data<a class="anchor" aria-label="anchor" href="#Tidy-Data"><i class="fas fa-link"></i></a>
 </h2>
 <p>You can represent the same data in many different ways. In almost all cases, the best way to do so is to make sure your data is <strong>tidy</strong>. In tidy data, each row corresponds to a unique observation, each column is a variable, and each cell contains the value for a particular observation and variable.</p>
 <p>The series of illustrations below helps explain the concept of tidy data and why it is useful!</p>
@@ -97,7 +97,7 @@ Illustrations from the Openscapes blog Tidy Data for reproducibility, efficiency
 </div>
 <div id="tidyverse" class="section level2">
 <h2>
-<span class="header-section-number">11.2</span> Tidyverse<a class="anchor" aria-label="anchor" href="#tidyverse"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12.2</span> Tidyverse<a class="anchor" aria-label="anchor" href="#tidyverse"><i class="fas fa-link"></i></a>
 </h2>
 <p>tidyverse is a collection of packages that all “share an underlying design philosophy, grammar, and data structure” of tidy data. The tidyverse packages and functions are the tools you will use to fill your R workbench, and they will help with every step of your workflow.</p>
 <img src="figures/environmental-data-science-r4ds-general.png" style="width:100.0%"><p style="font-size:6pt">
@@ -124,21 +124,21 @@ Artwork by <span class="citation">Horst (2022)</span>
 </div>
 <div id="investigating-data" class="section level2">
 <h2>
-<span class="header-section-number">11.3</span> Investigating Data<a class="anchor" aria-label="anchor" href="#investigating-data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12.3</span> Investigating Data<a class="anchor" aria-label="anchor" href="#investigating-data"><i class="fas fa-link"></i></a>
 </h2>
 <p>One of the first things you should do when working with a new dataset is to actually look at it. This might seem obvious and simple, but it is very important because it allows you to get a sense of what type of wrangling and manipulation you may need to apply to be able to work with that data.</p>
 <div id="view-full" class="section level3">
 <h3>
-<span class="header-section-number">11.3.1</span> View Full<a class="anchor" aria-label="anchor" href="#view-full"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12.3.1</span> View Full<a class="anchor" aria-label="anchor" href="#view-full"><i class="fas fa-link"></i></a>
 </h3>
 <p>You can view a data object by using the <code><a href="https://rdrr.io/r/utils/View.html">View()</a></code> function. To inspect the <code>penguins</code> object you can run <code>View(penguins)</code> or click on the object itself in your RStudio’s global environment panel.</p>
 </div>
 <div id="glimpse" class="section level3">
 <h3>
-<span class="header-section-number">11.3.2</span> glimpse<a class="anchor" aria-label="anchor" href="#glimpse"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12.3.2</span> glimpse<a class="anchor" aria-label="anchor" href="#glimpse"><i class="fas fa-link"></i></a>
 </h3>
 <p>Often times datasets are very large and it is impractical to try and comb through the whole file. It would be much more helpful if there was a way to quickly glimpse at your data to get an overall impression of it. There is a very appropriately named function for this: <code><a href="https://tibble.tidyverse.org/reference/glimpse.html">glimpse()</a></code>!</p>
-<div class="sourceCode" id="cb240"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb241"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://tibble.tidyverse.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">penguins</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Rows: 344</span></span>
 <span><span class="co">#&gt; Columns: 8</span></span>
@@ -160,10 +160,10 @@ Artwork by <span class="citation">Horst (2022)</span>
 </div>
 <div id="head" class="section level3">
 <h3>
-<span class="header-section-number">11.3.3</span> head<a class="anchor" aria-label="anchor" href="#head"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12.3.3</span> head<a class="anchor" aria-label="anchor" href="#head"><i class="fas fa-link"></i></a>
 </h3>
 <p><code><a href="https://tibble.tidyverse.org/reference/glimpse.html">glimpse()</a></code> gives you a high level snapshot of your data, but it can also be useful to look at some actual rows of data. Looking at all of them at once is silly though. You really just want to look at a few observations to see if you can recognize anything that may need to be corrected. The <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> function can be used for this. It will print the first few rows of data in the argument you pass it to.</p>
-<div class="sourceCode" id="cb241"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb242"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">penguins</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 6 x 8</span></span>
 <span><span class="co">#&gt;   species island    bill_length_mm bill_depth_mm</span></span>
@@ -177,7 +177,7 @@ Artwork by <span class="citation">Horst (2022)</span>
 <span><span class="co">#&gt; # … with 4 more variables: flipper_length_mm &lt;int&gt;,</span></span>
 <span><span class="co">#&gt; #   body_mass_g &lt;int&gt;, sex &lt;fct&gt;, year &lt;int&gt;</span></span></code></pre></div>
 <p>You can specify the exact amount of rows you want to print by passing a second argument to <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> that specifies the number of rows. E.g.,</p>
-<div class="sourceCode" id="cb242"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb243"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="fl">10</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 10 x 8</span></span>
 <span><span class="co">#&gt;    species island    bill_length_mm bill_depth_mm</span></span>
@@ -206,19 +206,19 @@ Artwork by <span class="citation">Horst (2022)</span>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="control-flow.html"><span class="header-section-number">10</span> Control Flow</a></div>
-<div class="next"><a href="basic-wrangling.html"><span class="header-section-number">12</span> Basic Wrangling</a></div>
+<div class="prev"><a href="control-flow.html"><span class="header-section-number">11</span> Control Flow</a></div>
+<div class="next"><a href="basic-wrangling.html"><span class="header-section-number">13</span> Basic Wrangling</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#tidy-data-and-tidyverse"><span class="header-section-number">11</span> Tidy Data and Tidyverse</a></li>
-<li><a class="nav-link" href="#Tidy-Data"><span class="header-section-number">11.1</span> Tidy Data</a></li>
-<li><a class="nav-link" href="#tidyverse"><span class="header-section-number">11.2</span> Tidyverse</a></li>
+<li><a class="nav-link" href="#tidy-data-and-tidyverse"><span class="header-section-number">12</span> Tidy Data and Tidyverse</a></li>
+<li><a class="nav-link" href="#Tidy-Data"><span class="header-section-number">12.1</span> Tidy Data</a></li>
+<li><a class="nav-link" href="#tidyverse"><span class="header-section-number">12.2</span> Tidyverse</a></li>
 <li>
-<a class="nav-link" href="#investigating-data"><span class="header-section-number">11.3</span> Investigating Data</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#view-full"><span class="header-section-number">11.3.1</span> View Full</a></li>
-<li><a class="nav-link" href="#glimpse"><span class="header-section-number">11.3.2</span> glimpse</a></li>
-<li><a class="nav-link" href="#head"><span class="header-section-number">11.3.3</span> head</a></li>
+<a class="nav-link" href="#investigating-data"><span class="header-section-number">12.3</span> Investigating Data</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#view-full"><span class="header-section-number">12.3.1</span> View Full</a></li>
+<li><a class="nav-link" href="#glimpse"><span class="header-section-number">12.3.2</span> glimpse</a></li>
+<li><a class="nav-link" href="#head"><span class="header-section-number">12.3.3</span> head</a></li>
 </ul>
 </li>
 </ul>
