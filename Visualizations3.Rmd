@@ -43,7 +43,7 @@ Saving the visualization to a variable prevents the need to copy/paste the entir
 
 ## Scaling The Axes
 
-By default, ggplot will use axes settings that it thinks best highlight the data being visualized. Here,the y-axis runs from ~2000 - 7000 and has intervals of 1000 starting at 3000.
+By default, ggplot will use axes settings that it thinks best highlight the data being visualized. Here, the y-axis runs from ~2000 - 7000 and has intervals of 1000 starting at 3000.
 
 This can be changed using a `scale_*_*` function. The first `*` is replaced by which axis you want to modify, and the second with what type of data or scale you want it to have. Here, the y-axis is continuous, so `scale_y_continuous()` would be used. Its arguments can be used to modify what is shown on the axis. There are two reasons why you might want to change this.
 
@@ -131,7 +131,7 @@ base_plot +
 
 The specific arguments used are pretty self explanatory. While this added more information to the visualization, it does not particularly look great. The size of the title and subtitle are too close together, and both rather small. In fact, all the text is pretty small. The titles should be centered while the footnote should be left-aligned. Adding more information just created more that needs to be customized! 
 
-<p class="text-info"> **<u>Note:</u> Graphs here may look slightly different from those you generate with the same code. There is some hidden formatting in the back-end included to help the graphs render properly in the space constraint.**</p>
+<p class="text-info"> **<u>Note:</u> Graphs here may look slightly different from those you generate with the same code. There is some hidden formatting in the back-end included to help the graphs render properly in the space constraint on this website.**</p>
 
 <!-- <div class="panel panel-success"> -->
 <!--   <div class="panel-heading">**EXERCISE 4**</div> -->
@@ -351,7 +351,7 @@ modified_plot = modified_plot +
 modified_plot
 ```
 
-<p class="text-info"> **<u>Note:</u> It is generally not recommended to change the color of your axis lines or tick marks. This is included for instructional purposes.**</p>
+<p class="text-info"> **<u>Note:</u> It is generally not recommended to use different colors for your axis lines or tick marks, only using black to make them darker/more consistent and punchy. So, while you can technically set them to be <u>any</u> color, avoid using anything but black.**</p>
 
 Now **THAT** is looking like a publication-worthy visualization!
 
@@ -599,7 +599,7 @@ b / c
 (c | (a / b))
 ```
 
-<p class="text-info"> **<u>Note:</u> The format settings defined for a single graph may not be best for an arrangement of multiple graphs combined into a single visualization. In the visualizations above the axes titles and labels are a little too big, causing some of them to overlap and be unreadable.**</p>
+<p class="text-info"> **<u>Note:</u> The format settings defined for a single graph may not be best for an arrangement of multiple graphs combined into a single visualization. In the visualizations above, the axes titles and labels are a little too big, causing some of them to overlap and be unreadable.**</p>
 
 <!-- <div class="panel panel-success"> -->
 <!--   <div class="panel-heading">**EXERCISE 11**</div> -->

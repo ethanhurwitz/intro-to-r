@@ -165,7 +165,7 @@ You are a UGIA and are helping the professor with an exam. You have a series of 
 x = c(1:10) # Exam scores
 
 for (i in 1:length(x)) {
-  x[i]= x[i] + 1 # Set the ith X to be equal to itself + 1
+  x[i] = x[i] + 1 # Set the ith X to be equal to itself + 1
   # This will be iterated through each value in x
 }
 

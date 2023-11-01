@@ -76,7 +76,7 @@ penguins %>%
 
 **Looking at distributions**
 
-Being able to understand and characterize distributions is an integral part of the Social/Data Scientists toolbox. When you want to know more about the distribution of a particular numerical variable in your dataset, you have a few options available to you.
+Being able to understand and characterize distributions is an integral part of the Social/Data Scientist's toolbox. When you want to know more about the distribution of a particular continuous variable in your dataset, you have a few options available to you.
 
 ### Histogram
 
@@ -132,7 +132,7 @@ In the first histogram you would probably say this is a unimodal distribution wi
 
 ### Density
 
-**density plots**, in short, are a smoothed histogram. If you are particularly stats-minded and want further information, you click below for some further info. 
+**density plots**, in short, are a smoothed histogram. If you are particularly stats-minded and want further information, click below for some further info. 
 
 <button class="btn btn-primary" data-toggle="collapse" data-target="#BlockName"> Advanced </button>  
 <div id="BlockName" class="collapse">  
@@ -160,7 +160,7 @@ You can see that, by smoothing, density plots obscure some of the noisiness (var
 
 ### vlines
 
-One thing you may want to do with a histogram is mark specific parts or regions of your data. This can be done by adding *vertical lines* with `geom_vline()`. To add a vertical line you must specify where on the x-axis that line should cross. Since you are doing something to the axis, you must make the specification in an `aes()` call.
+One thing you may want to do with a histogram is mark specific parts or regions of your data. This can be done by adding *vertical lines* with `geom_vline()`. To add a vertical line you must specify where on the x-axis that line should cross (i.e., the `xintercept`). Since you are doing something to the axis, you must make the specification in an `aes()` call.
 
 ```{r}
 penguins %>%
@@ -218,7 +218,7 @@ penguins %>%
 
 Like a scatter plot, each point represents an observation. However, you also are given some information about how many observations may be occupying the same/similar space. In this example, the lighter the spot, the more concentrated the observations in that spot.
 
-A twist on the 2d Histogram is to make a hexbin plot, which is essentially the same thing but uses hexagons instead of squares. Everything else is the same, but you use `geom_hex()`. Which also gives the added benefit of making you feel like you are casting a hex on the data (sometimes when you're coding, you have to look for all the little fun you can).
+A twist on the 2d Histogram is to make a hexbin plot, which is essentially the same thing but uses hexagons instead of squares. Everything else is the same, but you use `geom_hex()`. This also gives the added benefit of making you feel like you are casting a hex on the data (sometimes when you're coding, you have to look for all the little fun you can).
   
 ```{r}
 penguins %>%
@@ -290,9 +290,9 @@ Arguably, the most common thing you will create a graph to visualize is the comp
 
 > How does the average weight (`body_mass_g`) of the penguins compare across islands (`island`)?
 
-Maybe it is the case that some islands have better food sources that others, and the penguins there can gorge themselves into a food coma all day long while the penguins on other islands are not as lucky.
+Maybe it is the case that some islands have better food sources than others, and the penguins there can gorge themselves into a food coma all day long, while the penguins on other islands are not as lucky.
 
-There are a **<u>LOT</u>** of options for how to visualize comparisons of this kind. In the examples, you will also see some important guidelines to implement or follow.
+There are a **<u>LOT</u>** of options for how to visualize comparisons of this kind. In the examples below, you will also see some important guidelines to implement or follow.
 
 <p class="text-info"> **<u>Note:</u> When looking at how the values of one continuous variable compare across levels of a categorical variable, it is helpful to first examine how the values of the continuous variable vary to begin with.**</p>
 
@@ -304,7 +304,7 @@ penguins %>%
 
 ### `stat_summary()`
 
-The `stat_summary()` function is an extremely powerful and versatile function which can be used to create a visualization summarizing the y values for each unique x value. The `fun =` argument specifies what type of summary you want to visualize for the y values. The `geom =` argument specifies how you want those results to be visualized. In short, you tell it what you want to visualize and how.
+The `stat_summary()` function is an extremely powerful and versatile function which can be used to create a visualization summarizing the y-axis values for each unique x-axis value. The `fun =` argument specifies what type of summary you want to visualize for the y-axis values. The `geom =` argument specifies how you want those results to be visualized. In short, you tell it what you want to visualize and how.
 
 The summary function you will use most often is likely the "mean" (or average), but you can also use a number of others including "median", "max", "min", "sd" (standard deviation), etc., to compare several different summary statistics between the groups on your x-axis variable. **All examples that follow will use the mean.**
 
@@ -314,7 +314,7 @@ Just as there are several summary statistics you can use, there are several ways
 
 The canonical visualization is the bar chart, using the "bar" geom.
 
-<p style="font-size:10pt">Going forward, the habit of making predictions for and/or summarizing the visualizations create will be brought back. A formal prediction will first be declared by specifying two mutually exclusive alternative patterns that *could* be observed in the visualizations. The same idea (hypothesis) will be worked with, so subsequent predictions can just refer to that hypothesis rather than explicitly stating it. After making the visualization, a <u>short</u> summary of what the visualization shows will be written.</p>
+<p style="font-size:10pt">Going forward, the habit of making predictions for and/or summarizing the visualizations created will be brought back. A formal prediction will first be declared by specifying two mutually exclusive alternative patterns that *could* be observed in the visualizations. The same idea (hypothesis) will be worked with, so subsequent predictions can just refer to that hypothesis rather than explicitly stating it. After making the visualization, a <u>short</u> summary of what the visualization shows will be written.</p>
 
 ::: {.rmdwarning}
 * "If it is the case that the differences in penguin weight could be explained by what island they live on (e.g., penguins on some islands are heavier on average than penguins on other islands), then some bars should be higher or lower than the others. If it is not the case that the differences in penguin weight could be explained by what island they live on, the bars should all have roughly equivalent heights."
@@ -342,7 +342,7 @@ penguins %>%
   stat_summary(fun = "mean", geom = "point")
 ```
 
-Compared to when the means were represented with bars, the difference between the average weight of penguins on Biscoe island to the other two islands looks *much* more drastic. Why is that? It is the same data, just visualized differently. You will note that the scale of the y-axis has changed here. Instead of running from 0 - 5000 like in the bar chart, it runs from 3750 - 4750. Modifying axis scales will be covered later, but for now this is a reminder to be mindful of scales when making your interpretation, and how the scale might skew the interpretations someone makes from your visualization!
+Compared to when the means were represented with bars, the difference between the average weight of penguins on Biscoe island to the other two islands looks *much* more drastic. Why is that? It is the same data, just visualized differently. You will note that the scale of the y-axis has changed here. Instead of running from 0 - 5000 like in the bar chart, it runs from 3750 - 4750. Modifying axes scales will be covered later, but for now this is a reminder to be mindful of scales when making your interpretation, and how the scale might skew the interpretations someone makes from your visualization!
 
 #### Line
 
@@ -358,7 +358,7 @@ Hm, okay, this did not work. R is telling you something here though:
 
 <p style="color:#A79BF0"> **geom_path: Each group consists of only one observation. Do you need to adjust the group aesthetic?**</p>
 
-What this is telling you is that the line that R is trying to make needs to know what points you are trying to connect. It does not know how you want the individual pieces of the visualization (here, the `mean body_mass_g` for each level of `island`) grouped together, as each group only has one observation. R even gave you a recommendation on how to fix this by asking if you need to adjust the ***group*** aesthetic! This is a new aesthetic that will be covered more later.
+What this is telling you is that the line that R is trying to make needs to know what points you are trying to connect. It does not know how you want the individual pieces of the visualization (here, the mean `body_mass_g` for each level of `island`) grouped together, as each group only has one observation. R even gave you a recommendation on how to fix this by asking if you need to adjust the ***group*** aesthetic! This is a new aesthetic that will be covered more later.
 
 For now, R needs to know that all the levels in `island` should be treated as coming from the same group. This can be done by simply telling R there should be one group:
 
@@ -389,7 +389,7 @@ penguins %>%
   stat_summary(fun = "mean", geom = "line")
 ```
 
-While you can use this here, line plots are best used for time series data.
+While you can use this here, line plots are best used for time series data, because they imply a linear connection between adjacent points. You'll note here that, for example, there is not direct linear connection between Biscoe and Dream.
 
 <!-- <div class="panel panel-success"> -->
 <!--   <div class="panel-heading">**EXERCISE 8**</div> -->
@@ -451,7 +451,7 @@ penguins %>%
   stat_summary(fun.data = "mean_se", geom = "pointrange")
 ```
 
-This gives basically the same graph as above, but only uses one `stat_summary()` call! The only downside here is you have slightly less control over customizing the line and point separately.
+This gives basically the same graph as above, but only uses one `stat_summary()` call! The only downside here is you have slightly less control over customizing the lines and points separately.
 
 <!-- <div class="panel panel-success"> -->
 <!--   <div class="panel-heading">**EXERCISE 9**</div> -->
@@ -492,7 +492,7 @@ While boxplots give you a better sense of a distribution by providing more infor
 <p style="font-size:8pt">Source: [Same Stats, Different Graphs...](https://www.autodeskresearch.com/publications/samestats)</p>
 
 ::: {.rmdcaution} 
-**While bar charts and boxplots are conventionally the most common way to represent your data, you have just seen who problematic this can be. It is always recommended to visualize the distribution of your data! This is the only way to be transparent and accurately communicate the patters in your data. For this reason, it is <u>strongly</u> advised to not use bars to represent means.**
+**While bar charts and boxplots are conventionally the most common way to represent your data, you have just seen how problematic this can be. It is always recommended to visualize the distribution of your data! This is the only way to be transparent and accurately communicate the patters in your data. For this reason, it is <u>strongly</u> advised to not use bars to represent means, especially in the absence of the raw data.**
 :::
 
 The graphs outlined below will help you achieve the goals of both visualizing summary statistics **AND** the raw distributions of individual participant data in your dataset.
@@ -881,7 +881,7 @@ penguins %>%
      geom_point(shape = 21, position = position_dodge(width = .75))
 ```
 
-Probably the most common use case for this will be with error bars and CIs. Observe the following. By default, they are often come out looking funky:
+Probably the most common use case for this will be with error bars and CIs. Observe the following. By default, they often come out looking funky:
 
 ```{r}
 data.frame(
@@ -1041,7 +1041,7 @@ diamonds %>%
 
 #### Extras
 
-You may be asked to make visualizations like the following. You should not, but here is code in case it is needed.
+You may be asked to make visualizations like the following. You should not, but here is some template code you can use in case it is needed.
 
 Bars:
 

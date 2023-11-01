@@ -124,7 +124,7 @@ bakers # Original df
 
 ## Relational Data
 
-In simple cases, the data needed to answer questions of interest will all be in a single object (df, table, etc.). At scale, you will often by working with data spread across a number of separate objects. Processes that involve working with data in multiple objects are referred to as **relational data**, as it is the relationship between that data which is important.
+In simple cases, the data needed to answer questions of interest will all be in a single object (df, table, etc.). At scale, you will often be working with data spread across a number of separate objects. Processes that involve working with data in multiple objects are referred to as **relational data**, as it is the relationship between that data which is important.
 
 ### `bind_rows()`
 
@@ -150,7 +150,7 @@ It has the exact same form as the data in `bakers` (before any transformations).
 bind_rows(bakers, bakers2)
 ```
 
-Viola!
+Voila!
 
 If one object contains columns the other does not, those values will be filled with `NA`. In this way, `bind_rows()` is very flexible as it can accommodate situations where the dfs may contain different data.
 

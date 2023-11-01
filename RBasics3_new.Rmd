@@ -217,31 +217,31 @@ Load an installed package:
 
 <!-- In fact, this course website, all the course content, my personal website (and all parts of it), are all created in RStudio and written in a lot of R Markdown files! -->
 
-## R Markdown Syntax
+<!-- ## R Markdown Syntax -->
 
-R Markdown syntax could be a whole course on its own, but there are a couple fundamental things worth knowing:
+<!-- R Markdown syntax could be a whole course on its own, but there are a couple fundamental things worth knowing: -->
 
-You can insert code chunks with the keyboard shortcut: ctrl+option+i on OSX or alt+i on Windows
+<!-- You can insert code chunks with the keyboard shortcut: ctrl+option+i on OSX or alt+i on Windows -->
 
-```{r chunk_name, [options]}
+<!-- ```{r chunk_name, [options]} -->
 
-## R code here
+<!-- ## R code here -->
 
-```
+<!-- ``` -->
 
-You should always name your chunks (part of literate programming), and there are a number of options you can set for them (that are chunk specific). Some include:
+<!-- You should always name your chunks (part of literate programming), and there are a number of options you can set for them (that are chunk specific). Some include: -->
 
-* Figure height and width
-* Whether to **echo** (show) or **eval**uate (run) that code chunk in the final document (debugging tip! If you have a problem code chunk, set eval = `FALSE` so you can still knit, but leave yourself a note to fix it later!)
-* Whether to show **warnings** and **messages**
+<!-- * Figure height and width -->
+<!-- * Whether to **echo** (show) or **eval**uate (run) that code chunk in the final document (debugging tip! If you have a problem code chunk, set eval = `FALSE` so you can still knit, but leave yourself a note to fix it later!) -->
+<!-- * Whether to show **warnings** and **messages** -->
 
-You can see the full list of options [here](yihui.name/knitr/options/).
+<!-- You can see the full list of options [here](yihui.name/knitr/options/). -->
 
-You can also write R code inline, or, without a chunk. You can do this by writing a set of backticks, r (lowercase) after the first, then a space and then your code. For example:
+<!-- You can also write R code inline, or, without a chunk. You can do this by writing a set of backticks, r (lowercase) after the first, then a space and then your code. For example: -->
 
-The mean is `` `r "\u0060r mean(x)\u0060"` ``.
-    
-When this document is generated, the R code will be evaluated and it will look as though "The mean is 14." (or whatever the mean of `x` happens to be) was written!
+<!-- The mean is `` `r "\u0060r mean(x)\u0060"` ``. -->
+
+<!-- When this document is generated, the R code will be evaluated and it will look as though "The mean is 14." (or whatever the mean of `x` happens to be) was written! -->
 
 <!-- <div class="panel panel-success"> -->
 <!--   <div class="panel-heading">**EXERCISE #4**</div> -->
@@ -297,9 +297,9 @@ In general, you want to aim to write your code to be legible. This is both for y
 ((3 * 2) / 2) * 5 / 2
 
 #2
-x=2+4
+x<-2+4
 
-x = 2 + 4
+x <- 2 + 4
 ```
 
 * Always put a space after a comma, never before, just like in regular English:
@@ -444,11 +444,11 @@ There are several things you need to do:
 One thing you might think to do is just go step by step:
 
 ```{r eval = FALSE}
-mixture = mix(ingredients)
-thing_in_oven = pour(mixture)
-hot_baked_cake = bake(thing_in_oven)
-cooled_baked_cake = cool(hot_baked_bake)
-sliced_cake = slice(cooled_baked_cake)
+mixture <- mix(ingredients)
+thing_in_oven <- pour(mixture)
+hot_baked_cake <- bake(thing_in_oven)
+cooled_baked_cake <- cool(hot_baked_bake)
+sliced_cake <- slice(cooled_baked_cake)
 
 eat(sliced_cake, 1)
 ```
@@ -617,7 +617,7 @@ If the output from `read_csv()` was not saved to a variable, it would just print
 As an additional point, you can also directly load files from websites by using the website as the file path. Remember, a file path is just a map to tell your computer where to look for something. The file path just needs to lead `read_csv()` to a .csv file!
 
 ```{r eval=FALSE}
-example_df = read_csv("https://www.ethanhurwitz.com/example_data.csv")
+example_df <- read_csv("https://www.ethanhurwitz.com/example_data.csv")
 ```
 
 #### RData Files

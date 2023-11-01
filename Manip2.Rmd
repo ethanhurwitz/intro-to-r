@@ -448,7 +448,7 @@ The `everything()` function selects... everything! It will select all the variab
 
 <!-- filter(columnToSubset == valueOfInterest) - returns rows that meet specified condition(s). Can use single conditions or string together multiple tests with logical operators -->
 
-The second primary subsetting function is `filter()`, which returns rows that meet specified condition(s). Each condition is a logical test performed on a column. This will results in a vector of `TRUE` and `FALSE` values, and only the rows where the test evaluates to `TRUE` will be returned!
+The second primary subsetting function is `filter()`, which returns rows that meet specified condition(s). Each condition is a logical test performed on a row This will results in a vector of `TRUE` and `FALSE` values, and only the rows where the test evaluates to `TRUE` will be returned!
 
 ![](figures/dplyr_filter.jpeg){width=100%}
 <p style="font-size:6pt">Artwork by @allison_horst</p>
@@ -491,7 +491,7 @@ kables(list(tempTable1, tempTable3, tempTable2))
 **This filters the dataframe to return only rows where `gear` has a value of 4.**
 :::
 
-Any evaluative operator can be used in the conditions. The test conditions only need to result in `TRUE` or `FALSE`:
+Any comparison operator can be used in the conditions. The test conditions only need to result in `TRUE` or `FALSE`:
 
 ```{r eval=FALSE}
 mtcars2 %>%
@@ -1016,7 +1016,7 @@ mtcars2 %>%
 **This modifies the data in the `mpg` column to be of *character*, and the data in the `cyl` column to be a factor. The output of this is then piped to `glimpse()` so the types of each column will be displayed.**
 :::
 
-You can see from this output that all the numbers in `mpg` have quotes around them. Also, it is labeled "<chr>" and not "<dbl>". While the raw data for `cyl` look unchanged, you can see it now says "<fct>".
+You can see from this output that all the numbers in `mpg` have quotes around them. Also, it is labeled "\<chr\>" and not "\<dbl\>". While the raw data for `cyl` look unchanged, you can see it now says "\<fct\>".
 
 <!-- <div class="panel panel-success"> -->
 <!--   <div class="panel-heading">**EXERCISE 16**</div> -->
@@ -1068,7 +1068,12 @@ mtcars2 %>%
     geom_bar(position = "identity")
 ```
 
-The x-axis has a sensible arrangement, but this 1. is a function of the fact that the factors happen to be numbers, 2. is not particularly aesthetically pleasing when looking at the actual bars. The bars themselves have an inherent ordering and it may make more sense to organize them as such. This can be accomplished using `fct_infreq()`, which will reorder the levels of a factor **in** their **freq**uency of occurrence (with highest frequency first).
+The x-axis has a sensible arrangement, but this: 
+
+1. is a function of the fact that the factors happen to be numbers
+2. is not particularly aesthetically pleasing when looking at the actual bars. 
+
+The bars themselves have an inherent ordering and it may make more sense to organize them as such. This can be accomplished using `fct_infreq()`, which will reorder the levels of a factor **in** their **freq**uency of occurrence (with highest frequency first).
 
 ```{r}
 mtcars2 %>%
