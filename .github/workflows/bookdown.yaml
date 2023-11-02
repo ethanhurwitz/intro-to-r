@@ -25,6 +25,10 @@ jobs:
         run: |
             sudo apt-get install -y libcurl4-openssl-dev
 
+     - name: test
+        run: |
+          R -e 'install.packages("MASS")'
+
       - uses: r-lib/actions/setup-renv@v2
       
       - name: install packages missed by renv
