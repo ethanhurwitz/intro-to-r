@@ -9,7 +9,7 @@ library(tidyverse) # Load tidyverse packages
 
 <!-- <a href="exercises/Exercise_Manip3.Rmd" download>Exercise Sheet</a> -->
 
-This dataset used in examples throughout, called `HELPfull` (`mosaicData::HELPfull`), contains data from the **H**ealth **E**valuation and **L**inkage to **P**rimary Care study. From the dataset's description:
+The dataset used in examples throughout, called `HELPfull` (`mosaicData::HELPfull`), contains data from the **H**ealth **E**valuation and **L**inkage to **P**rimary Care study. From the dataset's description:
 
 - "The HELP study was a clinical trial for adult inpatients recruited from a detoxification unit. Patients with no primary care physician were randomized to receive a multidisciplinary assessment and a brief motivational intervention or usual care, with the goal of linking them to primary medical care."
 
@@ -32,8 +32,6 @@ It contains 788(!!) variables from 1472 observations!!! Throughout, as has been 
 <p class="text-info"> **<u>Note:</u> Using `head()` here is only to make these notes easier for you to understand. This is <u>NOT</u> something that should *always* be used in your code!!**</p>
 
 ## Selecting {#helper-functions}
-
-One of the first data wrangle tools we learned back in Lab 2 was `select()`. 
 
 `select()` was introduced [previously](#select) as a way to return only specific columns from your df. In this case, there are a **TON** of variables, and it would be quite annoying to have to explicitly specify all of them that you want by full name. Luckily, there are a number of **<u>helper functions</u>** that you can use with `select()` to help make selecting variables easier. What they do is select the variable names you want by *matching* them based on some specified criteria.
 
@@ -225,7 +223,7 @@ dat %>%
 dat %>%
   select(all_of(c("DRUGRISK", "DRUGRISK2"))) %>%
   head()
-#> Error in `select()`:
+#> Error in `all_of()`:
 #> ! Can't subset columns that don't exist.
 #> ✖ Column `DRUGRISK2` doesn't exist.
 ```

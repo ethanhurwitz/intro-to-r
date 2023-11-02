@@ -56,9 +56,9 @@ if(3 < x) {
 } else {
   print("the condition evaluated FALSE")
 }
-#> [1] "The condition evaluated TRUE"
+#> [1] "the condition evaluated FALSE"
 x
-#> [1] 5
+#> [1] 2
 ```
 
 This code specifies what to do depending on whether the test evaluates to `TRUE` or if it evaluates to `FALSE`.
@@ -76,9 +76,9 @@ if(4 < x) {
 } else {
   print("Neither the first or second condition evaluated TRUE.")
 }
-#> [1] "The first condition evaluated TRUE"
+#> [1] "Neither the first or second condition evaluated TRUE."
 x
-#> [1] 5
+#> [1] 2
 ```
 
 Writing `if` statements like this is most useful when the code you want to run executes a function. As you will note above, in all instances the `print()` function was the code being executed (what is in the curly brackets). An infinite number of `if` conditions can be chained together in an `if...else` chain.
@@ -118,7 +118,7 @@ ifelse(4 < x, "The first condition evaluated true.",
               "Neither the first or second condition evaluated true."))
 #> [1] "The second condition evaluated true."
 x
-#> [1] 3
+#> [1] 4
 ```
 
 <!-- <div class="panel panel-success"> -->
@@ -142,7 +142,7 @@ case_when(
 )
 #> [1] "The first condition evaluated true."
 x
-#> [1] 2
+#> [1] 3
 ```
 
 <!-- <div class="panel panel-success"> -->
@@ -178,7 +178,7 @@ You are a UGIA and are helping the professor with an exam. You have a series of 
 x = c(1:10) # Exam scores
 
 for (i in 1:length(x)) {
-  x[i]= x[i] + 1 # Set the ith X to be equal to itself + 1
+  x[i] = x[i] + 1 # Set the ith X to be equal to itself + 1
   # This will be iterated through each value in x
 }
 
@@ -380,7 +380,7 @@ From this one function alone, you can learn a lot about your data:
 
 ```r
 head(penguins)
-#> # A tibble: 6 x 8
+#> # A tibble: 6 × 8
 #>   species island    bill_length_mm bill_depth_mm
 #>   <fct>   <fct>              <dbl>         <dbl>
 #> 1 Adelie  Torgersen           39.1          18.7
@@ -389,7 +389,7 @@ head(penguins)
 #> 4 Adelie  Torgersen           NA            NA  
 #> 5 Adelie  Torgersen           36.7          19.3
 #> 6 Adelie  Torgersen           39.3          20.6
-#> # … with 4 more variables: flipper_length_mm <int>,
+#> # ℹ 4 more variables: flipper_length_mm <int>,
 #> #   body_mass_g <int>, sex <fct>, year <int>
 ```
 
@@ -398,7 +398,7 @@ You can specify the exact amount of rows you want to print by passing a second a
 
 ```r
 head(penguins, 10)
-#> # A tibble: 10 x 8
+#> # A tibble: 10 × 8
 #>    species island    bill_length_mm bill_depth_mm
 #>    <fct>   <fct>              <dbl>         <dbl>
 #>  1 Adelie  Torgersen           39.1          18.7
@@ -411,7 +411,7 @@ head(penguins, 10)
 #>  8 Adelie  Torgersen           39.2          19.6
 #>  9 Adelie  Torgersen           34.1          18.1
 #> 10 Adelie  Torgersen           42            20.2
-#> # … with 4 more variables: flipper_length_mm <int>,
+#> # ℹ 4 more variables: flipper_length_mm <int>,
 #> #   body_mass_g <int>, sex <fct>, year <int>
 ```
 

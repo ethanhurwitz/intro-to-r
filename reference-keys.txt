@@ -27,7 +27,6 @@ settings
 functions
 where-do-functions-come-from
 installing-packages
-r-markdown-syntax
 coding-best-practices
 naming-convention
 style-and-syntax
@@ -139,7 +138,7 @@ legends
 combining-graphs
 saving-graphs
 extra-resources-1
-color-theory
+Color-Theory
 hcl-and-color-theory
 hue
 chrominance-chroma

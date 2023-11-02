@@ -37,13 +37,13 @@ This collection of data is called the [datasauRus](https://github.com/jumpingriv
 
 ![](figures/anscombes-quartet.jpeg){Width=100%}
 
-All four of these datasets have matching n's, means, standard deviations, and correlations. This means that the slope and intercept, and corresponding statistical tests, will all be equivalent. The data **clearly** look different though. (These data are built into R in an object called `anscombe`, which you can look at to test this for yourself!)
+All four of these datasets have matching sample sizes (n's), means, standard deviations, and correlations. This means that the slope and intercept, and corresponding statistical tests, will all be equivalent. The data **clearly** look different though. (These data are built into R in an object called `anscombe`, which you can look at to test this for yourself!)
 
-The key point here is that the summary statistics of some variables and their linear relationships inherently overlook some aspects of the data. This highlights the critical importance of visualizing your data, and not just relying on summary statistics alone. The point of a visualization, just like a summary statistic, is to understand a relationship or pattern in your data. However, by looking at the raw data itself, you do not run the risk of missing things the way you do by relying on summary statistics alone.
+The key point here is that the summary statistics of some variables and their linear relationships inherently overlook some aspects of the data. This highlights the critical importance of visualizing your data, and not just relying on summary statistics alone. The point of a visualization, just like a summary statistic, is to understand a relationship or pattern in your data. However, by looking at the raw data itself with a visualization, you do not run the risk of missing things the way you do by relying on summary statistics alone.
 
 ## When Visualizing Go Wrong
 
-It is easy enough to just say, "Look at your raw data! Create a visualization!" However, a bad visualization is often times worse than no visualization at all. One of the things that the Covid-19 pandemic brought with it originally was a plethora of data visualizations. Below are a few that were observed out in the real world over the last 2 years:
+It is easy enough to just say, "Look at your raw data! Create a visualization!" However, a bad visualization is often times worse than no visualization at all. One of the things that the Covid-19 pandemic brought with it originally was a plethora of data visualizations. Below are a few that were observed out in the real world between 2020 and 2021. Try to think about *why* these are weird/problematic.
 
 ![](figures/bad_visualizations/badviz3.jpeg){width=100%}
 
@@ -59,9 +59,9 @@ So, it is not enough to just make *some* visualization, it is important to also 
 
 ## ggplot2
 
-Data visualization is one of the things that sets R apart from other programming languages that can be used for statistics, like Python. R still has the best data visualization capabilities, and it is one of the primary reasons it is used over Python in Social Sciences. This is also one of the first times you will get to see what coding can be all about. You are actually going to be creating stuff with your code!
+While some may argue otherwise, data visualization is one of the things that sets R apart from other programming languages that can be used for statistics (e.g., Python). R still has the best data visualization capabilities. This is also one of the first times you will get to see what coding can be all about. You are actually going to be creating some tangible output with your code!
 
-In this class, the `ggplot2` package will be used to create visualizations. Graphs are constructed by mapping data to geometric objects (lines, bars, points, etc.) according to some aesthetic attributes (color, shape, size, etc.). `ggplot2` uses this to inform its grammar.
+In this class, the `ggplot2` package will be used to create visualizations (e.g., graphs). Graphs are constructed by mapping data to geometric objects (lines, bars, points, etc.) according to some aesthetic attributes (color, shape, size, etc.). `ggplot2` uses this to inform its grammar.
 		
 ![](figures/ggplot2_masterpiece.png){width=100%}
 <p style="font-size:6pt">Artwork by @allison_horst</p>
@@ -136,7 +136,7 @@ penguins %>%
                        x = bill_length_mm)) +
   geom_point()
 #> Warning: Removed 2 rows containing missing values
-#> (geom_point).
+#> (`geom_point()`).
 ```
 
 <img src="Visualizations1_files/figure-html/unnamed-chunk-7-1.png" width="672" />
@@ -153,7 +153,7 @@ There are two important things to note here:
 
 <p style="color:#A79BF0"> **Warning message:<br>Removed 2 rows containing missing values (geom_point).**</p>
 
-Looking at your warnings and errors is always important, but especially so when creating visualizations! This says that it removed 2 rows of data, which may not seem like a big deal but you do not want your visualizations to be misleading. Especially when you start visualizing summary statistics (like means). If you look at your actual data though, you can verify that there are two penguins that do not have a measurement value for flipper length or bill length. So obviously without either or both of those, it cannot be included on the graph. In this case, this is okay, but it is important to always verify!
+Looking at your warnings and errors is always important, but especially so when creating visualizations! This says that it removed 2 rows of data. That may not seem like a big deal but you do not want your visualizations to be misleading, especially when you start visualizing summary statistics (like means). If you look at your actual data though, you can verify that there are two penguins that do not have a measurement value for flipper length or bill length. So obviously without either or both of those, it cannot be included on the graph. In this case, this is okay, but it is important to always verify!
 
 ::: {.rmdtip}
 <p style="font-size:10pt"><u>**NOTE:**</u> *moving forward, for pedagogical purposes this warning message will be hidden so the output from subsequent code is cleaner. However, those 2 rows are still being removed!*</p>
@@ -177,3 +177,5 @@ In the visualization it can be seen that, generally speaking, penguins with grea
 ## References:
 
 Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. R package version 0.1.0. https://allisonhorst.github.io/palmerpenguins/
+
+Shannon Ellis for the ["coding out loud"](https://cogs137.github.io/website/content/lectures/04-ggplot2-slides.html#/coding-out-loud) idea for ggplot code.

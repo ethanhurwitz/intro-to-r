@@ -8,9 +8,11 @@ Okay so what is R?
 
 ## Operators
 
+R is a programming language used for statistical modeling, data analysis, and visualization, among many other things. At its core, it uses **operators** to evaluate different statements.
+
 ### Arithmetic Operators
 
-While R is a programming language used for statistical modeling, data analysis, and visualization. At its core, it uses **operators** to evaluate different statements. The most basic form of this is using arithmetic operators to perform arithmetic operations:
+The most basic form of this is using arithmetic operators to perform arithmetic operations:
 
 <table class="table table-striped table-hover table-condensed table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto;">
  <thead>
@@ -49,6 +51,8 @@ While R is a programming language used for statistical modeling, data analysis, 
 
 
 
+
+
 ```r
 2 + 2
 #> [1] 4
@@ -69,7 +73,7 @@ While R is a programming language used for statistical modeling, data analysis, 
 
 ### Comparison Operators
 
-Return `TRUE` or `FALSE` values (aka booleans):
+Comparison operators make comparisons, and return `TRUE` or `FALSE` values (aka booleans):
 
 <table class="table table-striped table-hover table-condensed table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto;">
  <thead>
@@ -106,6 +110,8 @@ Return `TRUE` or `FALSE` values (aka booleans):
 </tbody>
 </table>
 
+
+
 You can look at some simple test expressions to see how they evaluate:
 
 
@@ -124,6 +130,8 @@ You can look at some simple test expressions to see how they evaluate:
 <!-- </div> -->
 
 ### Logical Operators
+
+Logical Operators perform logical tests and also return `TRUE` or `FALSE` values (aka booleans):
 
 <table class="table table-striped table-hover table-condensed table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto;">
  <thead>
@@ -151,6 +159,8 @@ You can look at some simple test expressions to see how they evaluate:
   </tr>
 </tbody>
 </table>
+
+
 
 Look at some more simple test expressions to see how they evaluate:
 
@@ -188,7 +198,7 @@ Programming languages often makes use of booleans (`TRUE` and `FALSE`), using th
 
 ## Variable Assignment
 
-You can also define objects (or variables) and save values or strings of code to them. Variables are how we store information so that we can access it later. In R, you assign a value to a variable with an assignment operator: `=` or `<-`:
+You can also define objects (or variables) and save values or strings of code/text to them. Variables are how we store information so that we can access it later. In R, you assign a value to a variable with an assignment operator: `=` or `<-`:
 
 `x = 4`
 
@@ -202,20 +212,20 @@ To reference or access the information stored in a variable, you "call" (type in
 
 
 ```r
-x = 4
+x <- 4
 x
 #> [1] 4
 x+2
 #> [1] 6
 x + x
 #> [1] 8
-y = x + 4
+y <- x + 4
 y
 #> [1] 8
-z = "Hello world"
+z <- "Hello world"
 z
 #> [1] "Hello world"
-myVar = 4
+myVar <- 4
 myVar
 #> [1] 4
 ```
@@ -224,7 +234,7 @@ As R is a programming language, it is very specific and finicky. You must be <u>
 
 
 ```r
-myVar = 4
+myVar <- 4
 myvar
 ```
 
@@ -299,7 +309,7 @@ ls()
 
 Notice that the `x` object is no longer there. `rm()` is **permanent**, so be careful!
 
-You may have thought, "if `y = x + 2`, and you remove x, will there be an error?" This is a good question but the answer is no, because exact value `x` was is being saved as the variable `y`. `x` is not a dynamic value, but rather once you set `x = 4`, anytime R reads `x`, it will replace it with `4`. So `y` is set equal to `4 + 2`. In R, once a variable is declared (set with `=` or `<-`), its value does not change unless you explicitly overwrite it.
+You may have thought, "if `y <- x + 2`, and you remove x, will there be an error?" This is a good question but the answer is no, because exact value `x` was is being saved as the variable `y`. `x` is not a dynamic value, but rather once you set `x = 4`, anytime R reads `x`, it will replace it with `4`. So `y` is set equal to `4 + 2`. In R, once a variable is declared (set with `=` or `<-`), its value does not change unless you explicitly overwrite it.
 
 If you want to clear your entire workspace (which is good practice at the beginning of your script), type in `rm(list=ls())` -- which is saying to remove (rm) the objects in your workspace (ls()). 
 
@@ -313,15 +323,15 @@ Often times you will want to work with a series of values (or elements). **(Atom
 
 
 ```r
-myVector = c(4,2,0,6,9)
+myVector <- c(4,2,0,6,9)
 myVector
 #> [1] 4 2 0 6 9
 # Can also store text, not just numbers.
-y = "hello"
+y <- "hello"
 y
 #> [1] "hello"
 # Or strings of text
-y = c("hello", "world")
+y <- c("hello", "world")
 y
 #> [1] "hello" "world"
 ```
@@ -372,9 +382,9 @@ myVector[2]
 
 ### Dataframes
 
-Most of the time you are going to be working with more than just one vector of values. Instead, you will have a set of different data (a dataset). The most common data structure used in R is a data frame (or df), which is used for datasets. The majority of your work in Social Sciences will be involving data frames. So, it is good to get used to them early!
+Most of the time you are going to be working with more than just one vector of values. Instead, you will have a set of different data (a dataset). The most common data structure used in R is a data frame (or df), which is used for datasets. The majority of your work in Data Science and Social Sciences will involve data frames. So, it is good to get used to them early!
 
-You can think of a data frame like an excel spreadsheet: a series of equal length vectors, where each vector is treated as a column and elements of those vectors are the rows. Most of the time you will be using a data frame that is loading a dataset from an existing file. However, you can also create them from scratch:
+You can think of a data frame like an Excel spreadsheet: a series of equal length vectors, where each vector is treated as a column and elements of those vectors are the rows. Most of the time you will be using a data frame that is loading a dataset from an existing file. However, you can also create them from scratch:
 
 
 ```r

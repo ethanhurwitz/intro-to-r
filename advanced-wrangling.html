@@ -6,20 +6,46 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 14 Advanced Wrangling | Introduction to R</title>
 <meta name="author" content="Ethan Hurwitz">
-<meta name="description" content="library(tidyverse) # Load tidyverse packages This dataset used in examples throughout, called HELPfull (mosaicData::HELPfull), contains data from the Health Evaluation and Linkage to Primary Care...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="description" content="library(tidyverse) # Load tidyverse packages The dataset used in examples throughout, called HELPfull (mosaicData::HELPfull), contains data from the Health Evaluation and Linkage to Primary Care...">
+<meta name="generator" content="bookdown 0.36 with bs4_book()">
 <meta property="og:title" content="Chapter 14 Advanced Wrangling | Introduction to R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://ethanhurwitz.github.io/intro-to-r/advanced-wrangling.html">
-<meta property="og:description" content="library(tidyverse) # Load tidyverse packages This dataset used in examples throughout, called HELPfull (mosaicData::HELPfull), contains data from the Health Evaluation and Linkage to Primary Care...">
+<meta property="og:description" content="library(tidyverse) # Load tidyverse packages The dataset used in examples throughout, called HELPfull (mosaicData::HELPfull), contains data from the Health Evaluation and Linkage to Primary Care...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 14 Advanced Wrangling | Introduction to R">
-<meta name="twitter:description" content="library(tidyverse) # Load tidyverse packages This dataset used in examples throughout, called HELPfull (mosaicData::HELPfull), contains data from the Health Evaluation and Linkage to Primary Care...">
+<meta name="twitter:description" content="library(tidyverse) # Load tidyverse packages The dataset used in examples throughout, called HELPfull (mosaicData::HELPfull), contains data from the Health Evaluation and Linkage to Primary Care...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="bs4_style.css">
 <link rel="stylesheet" href="style.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
@@ -53,7 +79,7 @@
 <li><a class="" href="aesthetics.html"><span class="header-section-number">7</span> Aesthetics</a></li>
 <li><a class="" href="different-geoms-and-when-to-use-them.html"><span class="header-section-number">8</span> Different Geoms and When To Use Them</a></li>
 <li><a class="" href="customization.html"><span class="header-section-number">9</span> Customization</a></li>
-<li><a class="" href="color-theory.html"><span class="header-section-number">10</span> Color Theory</a></li>
+<li><a class="" href="Color-Theory.html"><span class="header-section-number">10</span> Color Theory</a></li>
 <li class="book-part">Data Manipulation</li>
 <li><a class="" href="control-flow.html"><span class="header-section-number">11</span> Control Flow</a></li>
 <li><a class="" href="tidy-data-and-tidyverse.html"><span class="header-section-number">12</span> Tidy Data and Tidyverse</a></li>
@@ -69,20 +95,20 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="advanced-wrangling" class="section level1">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="advanced-wrangling" class="section level1" number="14">
 <h1>
 <span class="header-section-number">14</span> Advanced Wrangling<a class="anchor" aria-label="anchor" href="#advanced-wrangling"><i class="fas fa-link"></i></a>
 </h1>
-<div class="sourceCode" id="cb291"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span> <span class="co"># Load tidyverse packages</span></span></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span> <span class="co"># Load tidyverse packages</span></span></code></pre></div>
 <!-- <a href="exercises/Exercise_Manip3.Rmd" download>Exercise Sheet</a> -->
-<p>This dataset used in examples throughout, called <code>HELPfull</code> (<code>mosaicData::HELPfull</code>), contains data from the <strong>H</strong>ealth <strong>E</strong>valuation and <strong>L</strong>inkage to <strong>P</strong>rimary Care study. From the dataset’s description:</p>
+<p>The dataset used in examples throughout, called <code>HELPfull</code> (<code><a href="https://rdrr.io/pkg/mosaicData/man/HELPfull.html">mosaicData::HELPfull</a></code>), contains data from the <strong>H</strong>ealth <strong>E</strong>valuation and <strong>L</strong>inkage to <strong>P</strong>rimary Care study. From the dataset’s description:</p>
 <ul>
 <li>“The HELP study was a clinical trial for adult inpatients recruited from a detoxification unit. Patients with no primary care physician were randomized to receive a multidisciplinary assessment and a brief motivational intervention or usual care, with the goal of linking them to primary medical care.”</li>
 </ul>
 <p>This data is saved in a variable called <code>dat</code>.</p>
-<p>This dataset is <strong><em>massive</em></strong>, so it is not even worth using <code><a href="https://tibble.tidyverse.org/reference/glimpse.html">glimpse()</a></code> to preview it.</p>
-<div class="sourceCode" id="cb292"><pre class="downlit sourceCode r">
+<p>This dataset is <strong><em>massive</em></strong>, so it is not even worth using <code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code> to preview it.</p>
+<div class="sourceCode" id="cb291"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">dat</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 788</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">dat</span><span class="op">)</span></span>
@@ -91,18 +117,17 @@
 <p class="text-info">
 <strong><u>Note:</u> Using <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> here is only to make these notes easier for you to understand. This is <u>NOT</u> something that should <em>always</em> be used in your code!!</strong>
 </p>
-<div id="helper-functions" class="section level2">
+<div id="helper-functions" class="section level2" number="14.1">
 <h2>
 <span class="header-section-number">14.1</span> Selecting<a class="anchor" aria-label="anchor" href="#helper-functions"><i class="fas fa-link"></i></a>
 </h2>
-<p>One of the first data wrangle tools we learned back in Lab 2 was <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code>.</p>
 <p><code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> was introduced <a href="basic-wrangling.html#select">previously</a> as a way to return only specific columns from your df. In this case, there are a <strong>TON</strong> of variables, and it would be quite annoying to have to explicitly specify all of them that you want by full name. Luckily, there are a number of <strong><u>helper functions</u></strong> that you can use with <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> to help make selecting variables easier. What they do is select the variable names you want by <em>matching</em> them based on some specified criteria.</p>
-<div id="starts_with" class="section level3">
+<div id="starts_with" class="section level3" number="14.1.1">
 <h3>
 <span class="header-section-number">14.1.1</span> <code>starts_with()</code><a class="anchor" aria-label="anchor" href="#starts_with"><i class="fas fa-link"></i></a>
 </h3>
 <p><code><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with()</a></code> will select all variables that <strong>start</strong> with a specified pattern.</p>
-<div class="sourceCode" id="cb293"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb292"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"RAW"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -121,12 +146,12 @@
 <span><span class="co">#&gt; 5      8     30      26</span></span>
 <span><span class="co">#&gt; 6      7     18      NA</span></span></code></pre></div>
 </div>
-<div id="ends_with" class="section level3">
+<div id="ends_with" class="section level3" number="14.1.2">
 <h3>
 <span class="header-section-number">14.1.2</span> <code>ends_with()</code><a class="anchor" aria-label="anchor" href="#ends_with"><i class="fas fa-link"></i></a>
 </h3>
 <p><code><a href="https://tidyselect.r-lib.org/reference/starts_with.html">ends_with()</a></code> will select all variables that <strong>end</strong> with a specified pattern.</p>
-<div class="sourceCode" id="cb294"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb293"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">ends_with</a></span><span class="op">(</span><span class="st">"ABUSE"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -146,12 +171,12 @@
 <!--   </div> -->
 <!-- </div> -->
 </div>
-<div id="contains" class="section level3">
+<div id="contains" class="section level3" number="14.1.3">
 <h3>
 <span class="header-section-number">14.1.3</span> <code>contains()</code><a class="anchor" aria-label="anchor" href="#contains"><i class="fas fa-link"></i></a>
 </h3>
 <p><code><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains()</a></code> selects variables if their name <strong>contains</strong> a specified pattern.</p>
-<div class="sourceCode" id="cb295"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb294"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"RISK"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -163,7 +188,7 @@
 <span><span class="co">#&gt; 5        0       7</span></span>
 <span><span class="co">#&gt; 6        0       0</span></span></code></pre></div>
 <p>This also works on special characters.</p>
-<div class="sourceCode" id="cb296"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb295"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"_"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">7</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -191,12 +216,12 @@
 <!--   </div> -->
 <!-- </div> -->
 </div>
-<div id="matches" class="section level3">
+<div id="matches" class="section level3" number="14.1.4">
 <h3>
 <span class="header-section-number">14.1.4</span> <code>matches()</code><a class="anchor" aria-label="anchor" href="#matches"><i class="fas fa-link"></i></a>
 </h3>
 <p><code><a href="https://tidyselect.r-lib.org/reference/starts_with.html">matches()</a></code> works similarly to <code><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains()</a></code> but uses <a href="advanced-wrangling.html#regex">regular expressions</a> (more on these below) rather than patterns.</p>
-<div class="sourceCode" id="cb297"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb296"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">matches</a></span><span class="op">(</span><span class="st">"[[:digit:]]"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">7</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -211,12 +236,12 @@
 <span><span class="co">#&gt; 5  0.000000  6.000000  1 12   6    1    0</span></span>
 <span><span class="co">#&gt; 6  6.366667  6.366667 NA NA   6    1    0</span></span></code></pre></div>
 </div>
-<div id="num_range" class="section level3">
+<div id="num_range" class="section level3" number="14.1.5">
 <h3>
 <span class="header-section-number">14.1.5</span> <code>num_range()</code><a class="anchor" aria-label="anchor" href="#num_range"><i class="fas fa-link"></i></a>
 </h3>
 <p><code><a href="https://tidyselect.r-lib.org/reference/starts_with.html">num_range()</a></code> matches a series of columns that has a string ending with a numerical range, e.g., x01, x02, x03.</p>
-<div class="sourceCode" id="cb298"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb297"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">num_range</a></span><span class="op">(</span><span class="st">"M"</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">15</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -228,12 +253,12 @@
 <span><span class="co">#&gt; 5  1  1  1  1  1  1  1  1  1   1   1   1   1   1   0</span></span>
 <span><span class="co">#&gt; 6  1  0  0  0  1  0  0  0  0   0   0   0   0   0   1</span></span></code></pre></div>
 </div>
-<div id="last_col" class="section level3">
+<div id="last_col" class="section level3" number="14.1.6">
 <h3>
 <span class="header-section-number">14.1.6</span> <code>last_col()</code><a class="anchor" aria-label="anchor" href="#last_col"><i class="fas fa-link"></i></a>
 </h3>
 <p><code><a href="https://tidyselect.r-lib.org/reference/everything.html">last_col()</a></code> selects the last column in a df. This can be especially helpful when paired with other functions. For example, when positioning columns in mutate or relocate:</p>
-<div class="sourceCode" id="cb299"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb298"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>newRow <span class="op">=</span> <span class="st">"test"</span>, .after <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">last_col</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">last_col</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -249,12 +274,12 @@
 <p><strong>This creates a new variable after the last column in the df, and then selects the last column (which is now the newly created variable).</strong></p>
 </div>
 </div>
-<div id="all_of" class="section level3">
+<div id="all_of" class="section level3" number="14.1.7">
 <h3>
 <span class="header-section-number">14.1.7</span> <code>all_of()</code><a class="anchor" aria-label="anchor" href="#all_of"><i class="fas fa-link"></i></a>
 </h3>
 <p><code><a href="https://tidyselect.r-lib.org/reference/all_of.html">all_of()</a></code> matches variable names in a character vector. <strong>All</strong> names must be present, otherwise an error is thrown. In this way, <code><a href="https://tidyselect.r-lib.org/reference/all_of.html">all_of()</a></code> is good when strict selection is needed and an error could have wide ranging consequences.</p>
-<div class="sourceCode" id="cb300"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb299"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/all_of.html">all_of</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"DRUGRISK"</span>, <span class="st">"SEXRISK"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -265,23 +290,23 @@
 <span><span class="co">#&gt; 4        0       3</span></span>
 <span><span class="co">#&gt; 5        0       7</span></span>
 <span><span class="co">#&gt; 6        0       0</span></span></code></pre></div>
-<div class="sourceCode" id="cb301"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb300"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/all_of.html">all_of</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"DRUGRISK"</span>, <span class="st">"DRUGRISK2"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Error in `select()`:</span></span>
+<span><span class="co">#&gt; Error in `all_of()`:</span></span>
 <span><span class="co">#&gt; ! Can't subset columns that don't exist.</span></span>
 <span><span class="co">#&gt; ✖ Column `DRUGRISK2` doesn't exist.</span></span></code></pre></div>
 <div class="rmdimportant">
 <p><strong>The <code>DRUGRISK2</code> variable does not exist in this dataset. Thus, the 2nd code chunk will throw an error.</strong></p>
 </div>
 </div>
-<div id="any_of" class="section level3">
+<div id="any_of" class="section level3" number="14.1.8">
 <h3>
 <span class="header-section-number">14.1.8</span> <code>any_of()</code><a class="anchor" aria-label="anchor" href="#any_of"><i class="fas fa-link"></i></a>
 </h3>
 <p><code><a href="https://tidyselect.r-lib.org/reference/all_of.html">any_of()</a></code> works the same as <code><a href="https://tidyselect.r-lib.org/reference/all_of.html">all_of()</a></code>, except that <strong>no error is thrown</strong> for names that do not exist. It will only return the columns from the input that are found in the data and ignore the ones that are not.</p>
-<div class="sourceCode" id="cb302"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb301"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/all_of.html">any_of</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"DRUGRISK"</span>, <span class="st">"SEXRISK"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -304,46 +329,46 @@
 <span><span class="co">#&gt; 6        0</span></span></code></pre></div>
 <p><code><a href="https://tidyselect.r-lib.org/reference/all_of.html">any_of()</a></code> is particularly useful when removing variables from your df, since there will be no error if you are including a variable that already does not exist. In this way, it can be used to make sure a variable is truly removed.</p>
 </div>
-<div id="where" class="section level3">
+<div id="where" class="section level3" number="14.1.9">
 <h3>
 <span class="header-section-number">14.1.9</span> <code>where()</code><a class="anchor" aria-label="anchor" href="#where"><i class="fas fa-link"></i></a>
 </h3>
-<p><code>where()</code> takes a function and returns all variables for which the function returns <code>TRUE</code>. For example, say you wanted to find how many quantitative variables there are in this df. As a reminder, <code><a href="https://rdrr.io/r/base/nrow.html">ncol()</a></code> returns the number of columns of the object passed to it.</p>
-<div class="sourceCode" id="cb303"><pre class="downlit sourceCode r">
+<p><code><a href="https://tidyselect.r-lib.org/reference/where.html">where()</a></code> takes a function and returns all variables for which the function returns <code>TRUE</code>. For example, say you wanted to find how many quantitative variables there are in this df. As a reminder, <code><a href="https://rdrr.io/r/base/nrow.html">ncol()</a></code> returns the number of columns of the object passed to it.</p>
+<div class="sourceCode" id="cb302"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/where.html">where</a></span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 782</span></span></code></pre></div>
 <div class="rmdimportant">
 <p><strong>This takes the <code>dat</code> dataframe, selects only the columns that are numeric, and then finds the number of columns.</strong></p>
 </div>
 <p class="text-info">
-<strong>Note: 1. You do not <u>call</u> the function by including parentheses after it, you just <em>NAME</em> the function. 2. The <code><a href="https://rdrr.io/r/base/nrow.html">ncol()</a></code> here is only used to make these notes easier for you to understand (and not print hundreds of columns). It is <u>NOT</u> necessary when using <code>where()</code>.</strong>
+<strong>Note: 1. You do not <u>call</u> the function by including parentheses after it, you just <em>NAME</em> the function. 2. The <code><a href="https://rdrr.io/r/base/nrow.html">ncol()</a></code> here is only used to make these notes easier for you to understand (and not print hundreds of columns). It is <u>NOT</u> necessary when using <code><a href="https://tidyselect.r-lib.org/reference/where.html">where()</a></code>.</strong>
 </p>
 <button class="btn btn-primary" data-toggle="collapse" data-target="#BlockName">
 How the Syntax Works
 </button>
 <div id="BlockName" class="collapse">
-<p>Under the hood of <code>where()</code>, it just needs a function. This means it can take functions that are designed on the spot.</p>
+<p>Under the hood of <code><a href="https://tidyselect.r-lib.org/reference/where.html">where()</a></code>, it just needs a function. This means it can take functions that are designed on the spot.</p>
 <p>The long form version of the code above would be the following:</p>
-<div class="sourceCode" id="cb304"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb303"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">is.numeric</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/where.html">where</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">is.numeric</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 782</span></span></code></pre></div>
 <p>Where you define the function that calls <code><a href="https://rdrr.io/r/base/numeric.html">is.numeric()</a></code> inline. A slightly condensed version of this inline defining looks like this:</p>
-<div class="sourceCode" id="cb305"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb304"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">is.numeric</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/where.html">where</a></span><span class="op">(</span><span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">is.numeric</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 782</span></span></code></pre></div>
 <p>You can replace the <code>function(x)</code> part with a <code>~</code>. Note that you need <code>.</code> before the <code>x</code> here though!</p>
 <p>This inline shorthand is really useful because it allows you to string multiple functions together using logic statements. For example, you could first select all the abuse columns, then only the columns that are numeric and have a mean larger than 1.</p>
-<div class="sourceCode" id="cb306"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb305"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"ABUSE"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"ABUSE"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">is.numeric</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/where.html">where</a></span><span class="op">(</span><span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">is.numeric</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   ABUSE2 ABUSE3</span></span>
 <span><span class="co">#&gt; 1      3      2</span></span>
@@ -379,12 +404,12 @@ How the Syntax Works
 <!--   </div> -->
 <!-- </div> -->
 </div>
-<div id="misc-selecting" class="section level3">
+<div id="misc-selecting" class="section level3" number="14.1.10">
 <h3>
 <span class="header-section-number">14.1.10</span> Misc Selecting<a class="anchor" aria-label="anchor" href="#misc-selecting"><i class="fas fa-link"></i></a>
 </h3>
 <p>Logical operators work as expected and can be used to create tests with multiple helper functions for even more specified selecting!</p>
-<div class="sourceCode" id="cb307"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb306"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"RAW"</span><span class="op">)</span> <span class="op">|</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"ABUSE"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -415,18 +440,18 @@ How the Syntax Works
 <p>Selection helper functions can be negated with a <code>!</code></p>
 <p>Below, only the number of columns is shown to save space, but note the difference!</p>
 <p>First look at how many variables there are total:</p>
-<div class="sourceCode" id="cb308"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb307"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 788</span></span></code></pre></div>
 <p>Then see how many there are that start with “RAW”:</p>
-<div class="sourceCode" id="cb309"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb308"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"RAW"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 12</span></span></code></pre></div>
 <p>Then see how many there are after selecting <em>NOT</em> the columns that start with “RAW”:</p>
-<div class="sourceCode" id="cb310"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb309"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"RAW"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -442,19 +467,19 @@ How the Syntax Works
 <!-- </div> -->
 </div>
 </div>
-<div id="filtering" class="section level2">
+<div id="filtering" class="section level2" number="14.2">
 <h2>
 <span class="header-section-number">14.2</span> Filtering<a class="anchor" aria-label="anchor" href="#filtering"><i class="fas fa-link"></i></a>
 </h2>
 <p>There are two <code>if_*()</code> functions which take a selection of columns and apply the same test function to each. The results from each column are combined into individual logical vectors (a vector of <code>TRUE</code> and <code>FALSE</code>). <strong>Since you are dealing with logical vectors, this is good for <em>filtering</em>!</strong></p>
-<div id="if_any" class="section level3">
+<div id="if_any" class="section level3" number="14.2.1">
 <h3>
 <span class="header-section-number">14.2.1</span> <code>if_any()</code><a class="anchor" aria-label="anchor" href="#if_any"><i class="fas fa-link"></i></a>
 </h3>
 <p>Returns <code>TRUE</code> when the test evaluates to <code>TRUE</code> for <em>any</em> of the selected columns.</p>
 <p><code>filter(if_any(selection_of_columns, filter test to apply to each))</code></p>
 <p>Since the first argument of <code><a href="https://dplyr.tidyverse.org/reference/across.html">if_any()</a></code> is a selection of columns, you can use the same selection helper functions introduced above!</p>
-<div class="sourceCode" id="cb311"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb310"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Show the number of rows and columns in the full df</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">dat</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 1472  788</span></span>
@@ -485,12 +510,12 @@ How the Syntax Works
 <!--   </div> -->
 <!-- </div> -->
 </div>
-<div id="if_all" class="section level3">
+<div id="if_all" class="section level3" number="14.2.2">
 <h3>
 <span class="header-section-number">14.2.2</span> <code>if_all()</code><a class="anchor" aria-label="anchor" href="#if_all"><i class="fas fa-link"></i></a>
 </h3>
 <p><code><a href="https://dplyr.tidyverse.org/reference/across.html">if_all()</a></code> is similar to <code><a href="https://dplyr.tidyverse.org/reference/across.html">if_any()</a></code>, except it returns <code>TRUE</code> <strong>only</strong> when the test evaluates to <code>TRUE</code> for <strong><u>ALL</u></strong> of the selected columns.</p>
-<div class="sourceCode" id="cb312"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb311"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Show the number of rows and columns for</span></span>
 <span><span class="co"># the observations where ALL of the selected</span></span>
 <span><span class="co"># columns have a value greater than or equal to 1:</span></span>
@@ -503,7 +528,7 @@ How the Syntax Works
 </div>
 <p>Importantly, these functions will not give you an error if you do something incorrect (whereas using <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> would). Since you are dealing with logical vectors and tests, having nothing return is not inherently indicative of a problem!</p>
 <p>Look what happens when we try this on columns that we know do not exist (there are no columns that start with “Y”).</p>
-<div class="sourceCode" id="cb313"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb312"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"Y"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; data frame with 0 columns and 1472 rows</span></span>
@@ -516,7 +541,7 @@ How the Syntax Works
 <span><span class="co">#&gt; [1] 1472  788</span></span></code></pre></div>
 </div>
 </div>
-<div id="mutating-across" class="section level2">
+<div id="mutating-across" class="section level2" number="14.3">
 <h2>
 <span class="header-section-number">14.3</span> Mutating <code>across()</code><a class="anchor" aria-label="anchor" href="#mutating-across"><i class="fas fa-link"></i></a>
 </h2>
@@ -525,7 +550,7 @@ How the Syntax Works
 <!-- "`across()` makes it easy to apply the same transformation to multiple columns, allowing you to use `select()` semantics (like helper functions) inside "data-masking" functions like `mutate()`. R code in dplyr verbs is generally evaluated once per group. Inside `across()` however, code is evaluated once for each combination of columns and groups!" -->
 <p><code>across(selection_of_columns, NAME of function to apply to each)</code></p>
 <p>For example, if you wanted to <code><a href="https://rdrr.io/r/base/scale.html">scale()</a></code> specific columns:</p>
-<div class="sourceCode" id="cb314"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb313"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Q2"</span>, <span class="st">"Q3"</span><span class="op">)</span>, <span class="va">scale</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Q2"</span>, <span class="st">"Q3"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -542,7 +567,7 @@ How the Syntax Works
 <span><span class="co">#&gt; 9   2.9017304  5.3304180</span></span>
 <span><span class="co">#&gt; 10 -0.3443861 -0.3158289</span></span></code></pre></div>
 <p>Just like in the <code>if_*()</code> calls, because the first argument of <code><a href="https://dplyr.tidyverse.org/reference/across.html">across()</a></code> expects a selection of columns, you can use helper functions to make these selections as well!</p>
-<div class="sourceCode" id="cb315"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb314"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"Q"</span><span class="op">)</span>, <span class="va">scale</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"Q"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -575,13 +600,13 @@ How the Syntax Works
 <p class="text-info">
 <strong><u>Note:</u> All of the <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> calls were added only to save space and make these notes easier for you to understand by highlighting the specific rows that are changed. Without the <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> calls, this code will output all of the data (which is what you want!). <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> calls are NOT something that should <em>always</em> be used in your code with <code>mutate(across())</code>.</strong>
 </p>
-<p>You can combine <code>where()</code> with <code><a href="https://dplyr.tidyverse.org/reference/across.html">across()</a></code> to mutate conditionally. In other words, <strong>IF</strong> the column passes some test, the function will be applied to all its values.</p>
+<p>You can combine <code><a href="https://tidyselect.r-lib.org/reference/where.html">where()</a></code> with <code><a href="https://dplyr.tidyverse.org/reference/across.html">across()</a></code> to mutate conditionally. In other words, <strong>IF</strong> the column passes some test, the function will be applied to all its values.</p>
 <p>Consider the following scenario: say you wanted to convert all the <em>factors</em> to <em>characters</em>.</p>
 <p>First, you would check which columns contain <em>factors</em>:</p>
-<div class="sourceCode" id="cb316"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb315"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="va">is.factor</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/where.html">where</a></span><span class="op">(</span><span class="va">is.factor</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Rows: 1,472</span></span>
 <span><span class="co">#&gt; Columns: 6</span></span>
 <span><span class="co">#&gt; $ A14G_T &lt;fct&gt; "", "", "", "", "", "JAIL", "", "JAIL", "",…</span></span>
@@ -590,12 +615,12 @@ How the Syntax Works
 <span><span class="co">#&gt; $ U2Q_T  &lt;fct&gt; "", "", "", "", "", "", "", "", "NO NEED TO…</span></span>
 <span><span class="co">#&gt; $ U2R    &lt;fct&gt; , A, A, A, , H, , H, Q, , A, H, P, , H, D, …</span></span>
 <span><span class="co">#&gt; $ U7A_T  &lt;fct&gt; "", "", "", "", "", "", "", "", "", "", "",…</span></span></code></pre></div>
-<p>Next, you can use <code><a href="https://dplyr.tidyverse.org/reference/across.html">across()</a></code> and <code>where()</code> to change only columns that are <em>factors</em> into <em>characters</em>, checking which columns are <em>characters</em>. The columns that were previously <em>factors</em> should show up here.</p>
-<div class="sourceCode" id="cb317"><pre class="downlit sourceCode r">
+<p>Next, you can use <code><a href="https://dplyr.tidyverse.org/reference/across.html">across()</a></code> and <code><a href="https://tidyselect.r-lib.org/reference/where.html">where()</a></code> to change only columns that are <em>factors</em> into <em>characters</em>, checking which columns are <em>characters</em>. The columns that were previously <em>factors</em> should show up here.</p>
+<div class="sourceCode" id="cb316"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="va">is.factor</span><span class="op">)</span>, <span class="va">as.character</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="va">is.character</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/where.html">where</a></span><span class="op">(</span><span class="va">is.factor</span><span class="op">)</span>, <span class="va">as.character</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/where.html">where</a></span><span class="op">(</span><span class="va">is.character</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Rows: 1,472</span></span>
 <span><span class="co">#&gt; Columns: 6</span></span>
 <span><span class="co">#&gt; $ A14G_T &lt;chr&gt; "", "", "", "", "", "JAIL", "", "JAIL", "",…</span></span>
@@ -606,12 +631,12 @@ How the Syntax Works
 <span><span class="co">#&gt; $ U7A_T  &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", "",…</span></span></code></pre></div>
 <p>Which they do!</p>
 <p class="text-info">
-<strong><u>Note:</u> <code><a href="https://tibble.tidyverse.org/reference/glimpse.html">glimpse()</a></code> was added here only to make these notes easier for you to understand. Without <code><a href="https://tibble.tidyverse.org/reference/glimpse.html">glimpse()</a></code>, this code will just output the actual data (which is what you want!). <code><a href="https://tibble.tidyverse.org/reference/glimpse.html">glimpse()</a></code> is NOT something that should <em>always</em> be used in your code with <code><a href="https://dplyr.tidyverse.org/reference/across.html">across()</a></code> or <code>where()</code>.</strong>
+<strong><u>Note:</u> <code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code> was added here only to make these notes easier for you to understand. Without <code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code>, this code will just output the actual data (which is what you want!). <code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code> is NOT something that should <em>always</em> be used in your code with <code><a href="https://dplyr.tidyverse.org/reference/across.html">across()</a></code> or <code><a href="https://tidyselect.r-lib.org/reference/where.html">where()</a></code>.</strong>
 </p>
 <p>As before, multiple helper functions can be strung together with operators and they can also be negated with <code>!</code>. For example:</p>
-<div class="sourceCode" id="cb318"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb317"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span> <span class="op">&amp;</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"Z"</span><span class="op">)</span>, <span class="va">log</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/where.html">where</a></span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span> <span class="op">&amp;</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"Z"</span><span class="op">)</span>, <span class="va">log</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"Z"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt;         Z1       Z2</span></span>
@@ -622,9 +647,9 @@ How the Syntax Works
 <span><span class="co">#&gt; 5       NA       NA</span></span>
 <span><span class="co">#&gt; 6 6.906755 6.906755</span></span></code></pre></div>
 <p>You also can apply <em>multiple</em> functions simultaneously by <code>list</code>ing them. For example:</p>
-<div class="sourceCode" id="cb319"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb318"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span> <span class="op">&amp;</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"Z"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>log <span class="op">=</span> <span class="va">log</span>, round <span class="op">=</span> <span class="va">round</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/where.html">where</a></span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span> <span class="op">&amp;</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"Z"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>log <span class="op">=</span> <span class="va">log</span>, round <span class="op">=</span> <span class="va">round</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"Z"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt;    Z1  Z2   Z1_log Z1_round   Z2_log Z2_round</span></span>
@@ -645,7 +670,7 @@ How the Syntax Works
 <!--   </div> -->
 <!-- </div> -->
 </div>
-<div id="regex" class="section level2">
+<div id="regex" class="section level2" number="14.4">
 <h2>
 <span class="header-section-number">14.4</span> Regular Expressions<a class="anchor" aria-label="anchor" href="#regex"><i class="fas fa-link"></i></a>
 </h2>
@@ -678,7 +703,7 @@ How the Syntax Works
 <strong>[:blank:]</strong> - space and tab.</li>
 </ul>
 </div>
-<div id="extra-resources-2" class="section level2">
+<div id="extra-resources-2" class="section level2" number="14.5">
 <h2>
 <span class="header-section-number">14.5</span> Extra Resources<a class="anchor" aria-label="anchor" href="#extra-resources-2"><i class="fas fa-link"></i></a>
 </h2>
@@ -733,7 +758,7 @@ How the Syntax Works
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introduction to R</strong>" was written by Ethan Hurwitz. It was last built on 2022-07-31.</p>
+    <p>"<strong>Introduction to R</strong>" was written by Ethan Hurwitz. It was last built on 2023-11-02.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -746,7 +771,7 @@ How the Syntax Works
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

@@ -35,7 +35,7 @@ Consider the following df with data from contestants on a baking show (where the
 
 ```r
 bakers
-#> # A tibble: 4 x 4
+#> # A tibble: 4 × 4
 #>   baker  cinnamon_1 cardamom_2 nutmeg_3
 #>   <chr>       <dbl>      <dbl>    <dbl>
 #> 1 Emma            1          0        1
@@ -96,7 +96,7 @@ bakers_long = bakers %>%
                values_to = "correct"
                )
 bakers_long
-#> # A tibble: 12 x 3
+#> # A tibble: 12 × 3
 #>    baker  spice      correct
 #>    <chr>  <chr>        <dbl>
 #>  1 Emma   cinnamon_1       1
@@ -126,7 +126,7 @@ To verify this is true:
 bakers_long %>%
   pivot_wider(names_from = spice, 
               values_from = correct)
-#> # A tibble: 4 x 4
+#> # A tibble: 4 × 4
 #>   baker  cinnamon_1 cardamom_2 nutmeg_3
 #>   <chr>       <dbl>      <dbl>    <dbl>
 #> 1 Emma            1          0        1
@@ -134,7 +134,7 @@ bakers_long %>%
 #> 3 Ruby            1          0        1
 #> 4 Zainab          0         NA        0
 bakers # Original df
-#> # A tibble: 4 x 4
+#> # A tibble: 4 × 4
 #>   baker  cinnamon_1 cardamom_2 nutmeg_3
 #>   <chr>       <dbl>      <dbl>    <dbl>
 #> 1 Emma            1          0        1
@@ -153,7 +153,7 @@ bakers # Original df
 
 ## Relational Data
 
-In simple cases, the data needed to answer questions of interest will all be in a single object (df, table, etc.). At scale, you will often by working with data spread across a number of separate objects. Processes that involve working with data in multiple objects are referred to as **relational data**, as it is the relationship between that data which is important.
+In simple cases, the data needed to answer questions of interest will all be in a single object (df, table, etc.). At scale, you will often be working with data spread across a number of separate objects. Processes that involve working with data in multiple objects are referred to as **relational data**, as it is the relationship between that data which is important.
 
 ### `bind_rows()`
 
@@ -164,7 +164,7 @@ Imagine you get a new set of data from contestants on the second day of the show
 
 ```r
 bakers2
-#> # A tibble: 4 x 4
+#> # A tibble: 4 × 4
 #>   baker   cinnamon_1 cardamom_2 nutmeg_3
 #>   <chr>        <dbl>      <dbl>    <dbl>
 #> 1 Lamar            0          0        1
@@ -178,7 +178,7 @@ It has the exact same form as the data in `bakers` (before any transformations).
 
 ```r
 bind_rows(bakers, bakers2)
-#> # A tibble: 8 x 4
+#> # A tibble: 8 × 4
 #>   baker   cinnamon_1 cardamom_2 nutmeg_3
 #>   <chr>        <dbl>      <dbl>    <dbl>
 #> 1 Emma             1          0        1
@@ -191,7 +191,7 @@ bind_rows(bakers, bakers2)
 #> 8 Diana            1          1        0
 ```
 
-Viola!
+Voila!
 
 If one object contains columns the other does not, those values will be filled with `NA`. In this way, `bind_rows()` is very flexible as it can accommodate situations where the dfs may contain different data.
 
@@ -200,7 +200,7 @@ If one object contains columns the other does not, those values will be filled w
 bakers %>%
   mutate("cumin_4" = c(1,1,0,0)) %>%
   bind_rows(bakers2)
-#> # A tibble: 8 x 5
+#> # A tibble: 8 × 5
 #>   baker   cinnamon_1 cardamom_2 nutmeg_3 cumin_4
 #>   <chr>        <dbl>      <dbl>    <dbl>   <dbl>
 #> 1 Emma             1          0        1       1
@@ -327,7 +327,7 @@ For example, you have just been given some new data (`bakers3`) containing infor
 bakers_combined = bind_rows(bakers, bakers2)
 
 bakers3
-#> # A tibble: 4 x 4
+#> # A tibble: 4 × 4
 #>   baker   cinnamon_1 cardamom_2 nutmeg_3
 #>   <chr>        <dbl>      <dbl>    <dbl>
 #> 1 Emma             1          0        1
@@ -346,7 +346,7 @@ bakers3
 
 ```r
 union(bakers_combined, bakers3)
-#> # A tibble: 10 x 4
+#> # A tibble: 10 × 4
 #>    baker   cinnamon_1 cardamom_2 nutmeg_3
 #>    <chr>        <dbl>      <dbl>    <dbl>
 #>  1 Emma             1          0        1
@@ -378,7 +378,7 @@ union(bakers_combined, bakers3)
 
 ```r
 intersect(bakers_combined, bakers3)
-#> # A tibble: 2 x 4
+#> # A tibble: 2 × 4
 #>   baker   cinnamon_1 cardamom_2 nutmeg_3
 #>   <chr>        <dbl>      <dbl>    <dbl>
 #> 1 Emma             1          0        1
@@ -402,7 +402,7 @@ intersect(bakers_combined, bakers3)
 
 ```r
 setdiff(bakers_combined, bakers3)
-#> # A tibble: 6 x 4
+#> # A tibble: 6 × 4
 #>   baker  cinnamon_1 cardamom_2 nutmeg_3
 #>   <chr>       <dbl>      <dbl>    <dbl>
 #> 1 Harry           1          1        1
@@ -418,7 +418,7 @@ While the order of `x` and `y` does not matter for `union()` and `intersect()`, 
 
 ```r
 setdiff(bakers3, bakers_combined)
-#> # A tibble: 2 x 4
+#> # A tibble: 2 × 4
 #>   baker cinnamon_1 cardamom_2 nutmeg_3
 #>   <chr>      <dbl>      <dbl>    <dbl>
 #> 1 Jack           0          0        1

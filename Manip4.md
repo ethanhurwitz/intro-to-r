@@ -28,7 +28,7 @@ penguins %>%
 #>       152        68       124
 penguins %>%
   count(species)
-#> # A tibble: 3 x 2
+#> # A tibble: 3 × 2
 #>   species       n
 #>   <fct>     <int>
 #> 1 Adelie      152
@@ -67,7 +67,7 @@ For dfs, you have to manually compute the proportions and add them as a new vari
 penguins %>%
   count(species) %>%
   mutate(proportion = n / length(penguins$species))
-#> # A tibble: 3 x 3
+#> # A tibble: 3 × 3
 #>   species       n proportion
 #>   <fct>     <int>      <dbl>
 #> 1 Adelie      152      0.442
@@ -146,7 +146,7 @@ This works, but is a little messy. You will likely want to be a little more spec
 
 ```r
 penguins_example
-#> # A tibble: 6 x 3
+#> # A tibble: 6 × 3
 #>   species    mass flp_mm
 #>   <fct>     <int>  <int>
 #> 1 Adelie     3750    181
@@ -163,7 +163,7 @@ penguins_example %>%
   summarize(flipper_m = mean(flp_mm),
             mass_m = mean(mass),
             ratio = mean(mass / flp_mm))
-#> # A tibble: 1 x 3
+#> # A tibble: 1 × 3
 #>   flipper_m mass_m ratio
 #>       <dbl>  <dbl> <dbl>
 #> 1      199.  4192.  20.9
@@ -262,6 +262,8 @@ penguins_example %>%
   </tr>
 </tbody>
 </table>
+
+
 
 <!-- ```{r eval=FALSE} -->
 <!-- data.frame("ColA" = c(10,11,7,18), -->
@@ -415,7 +417,7 @@ penguins_example %>%
 
 
 ```
-#> # A tibble: 3 x 2
+#> # A tibble: 3 × 2
 #>   species   Flp_m
 #>   <fct>     <dbl>
 #> 1 Adelie     184.
@@ -585,6 +587,8 @@ penguins_example %>%
 </tbody>
 </table>
 
+
+
 Put a different way, when `summarize()` gets passed a grouped df, it will:
 
 1. Treat all groups of data as though they are a distinct dataset
@@ -604,7 +608,7 @@ penguins %>%
   summarize(n = n())
 #> `summarise()` has grouped output by 'island'. You can
 #> override using the `.groups` argument.
-#> # A tibble: 5 x 3
+#> # A tibble: 5 × 3
 #> # Groups:   island [3]
 #>   island    species       n
 #>   <fct>     <fct>     <int>
@@ -639,7 +643,7 @@ penguins %>%
   group_by(species) %>%
   summarize(bill_length_mean = mean(bill_length_mm),
             bill_depth_mean = mean(bill_depth_mm))
-#> # A tibble: 3 x 3
+#> # A tibble: 3 × 3
 #>   species   bill_length_mean bill_depth_mean
 #>   <fct>                <dbl>           <dbl>
 #> 1 Adelie                38.8            18.3
@@ -655,7 +659,22 @@ penguins %>%
   group_by(species) %>%
   summarize(across(starts_with("bill"),
                    mean, na.rm = TRUE))
-#> # A tibble: 3 x 3
+#> Warning: There was 1 warning in `summarize()`.
+#> ℹ In argument: `across(starts_with("bill"), mean, na.rm =
+#>   TRUE)`.
+#> ℹ In group 1: `species = Adelie`.
+#> Caused by warning:
+#> ! The `...` argument of `across()` is deprecated as of
+#>   dplyr 1.1.0.
+#> Supply arguments directly to `.fns` through an anonymous
+#> function instead.
+#> 
+#>   # Previously
+#>   across(a:b, mean, na.rm = TRUE)
+#> 
+#>   # Now
+#>   across(a:b, \(x) mean(x, na.rm = TRUE))
+#> # A tibble: 3 × 3
 #>   species   bill_length_mm bill_depth_mm
 #>   <fct>              <dbl>         <dbl>
 #> 1 Adelie              38.8          18.3
@@ -678,13 +697,14 @@ penguins %>%
   group_by(island) %>%
   summarize(across(starts_with("bill"), 
                    list(mean = mean, sd = sd), na.rm = TRUE))
-#> # A tibble: 3 x 5
-#>   island  bill_length_mm_… bill_length_mm_… bill_depth_mm_m…
-#>   <fct>              <dbl>            <dbl>            <dbl>
-#> 1 Biscoe              45.3             4.77             15.9
-#> 2 Dream               44.2             5.95             18.3
-#> 3 Torger…             39.0             3.03             18.4
-#> # … with 1 more variable: bill_depth_mm_sd <dbl>
+#> # A tibble: 3 × 5
+#>   island    bill_length_mm_mean bill_length_mm_sd
+#>   <fct>                   <dbl>             <dbl>
+#> 1 Biscoe                   45.3              4.77
+#> 2 Dream                    44.2              5.95
+#> 3 Torgersen                39.0              3.03
+#> # ℹ 2 more variables: bill_depth_mm_mean <dbl>,
+#> #   bill_depth_mm_sd <dbl>
 ```
 
 As another example, say you wanted to find the number of unique levels for the different factors in your data. This could be done on the entire dataset:
@@ -694,7 +714,7 @@ As another example, say you wanted to find the number of unique levels for the d
 penguins %>%
   drop_na() %>%
   summarize(across(where(is.factor), n_distinct))
-#> # A tibble: 1 x 3
+#> # A tibble: 1 × 3
 #>   species island   sex
 #>     <int>  <int> <int>
 #> 1       3      3     2
@@ -708,7 +728,7 @@ penguins %>%
   drop_na() %>%
   group_by(species) %>% 
   summarize(across(where(is.factor), n_distinct))
-#> # A tibble: 3 x 3
+#> # A tibble: 3 × 3
 #>   species   island   sex
 #>   <fct>      <int> <int>
 #> 1 Adelie         3     2

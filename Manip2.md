@@ -256,6 +256,8 @@ mtcars2 %>%
 </tbody>
 </table>
 
+
+
 ::: {.rmdimportant}
 **This code changes the order of the rows in `mtcars2` by the values in the `wt` column, with the lowest at the top.**
 :::
@@ -604,6 +606,8 @@ mtcars2 %>%
 </tbody>
 </table>
 
+
+
 ::: {.rmdimportant}
 **This code moves the `wt` column *after* the `model` column.**
 :::
@@ -816,6 +820,8 @@ mtcars2 %>%
 </tbody>
 </table>
 
+
+
 <!-- <div class="panel panel-success"> -->
 <!--   <div class="panel-heading">**EXERCISE 3**</div> -->
 <!--   <div class="panel-body"> -->
@@ -1000,6 +1006,8 @@ mtcars2 %>%
 </tbody>
 </table>
 
+
+
 Just as the `:` could be used to generate all the values in a range of numbers (e.g., `1:4` would return: 1,2,3,4), you can also use a `:` to return all the values in a range of *columns*. For example:
 
 
@@ -1175,6 +1183,8 @@ mtcars2 %>%
   </tr>
 </tbody>
 </table>
+
+
 
 ::: {.rmdimportant}
 **This selects the `cyl` column, the `hp` column, and all columns in between the two!**
@@ -1380,6 +1390,8 @@ mtcars2 %>%
 </tbody>
 </table>
 
+
+
 ::: {.rmdimportant}
 **This selects all columns *except* `cyl` and `gear`.**
 :::
@@ -1413,7 +1425,7 @@ The `everything()` function selects... everything! It will select all the variab
 
 <!-- filter(columnToSubset == valueOfInterest) - returns rows that meet specified condition(s). Can use single conditions or string together multiple tests with logical operators -->
 
-The second primary subsetting function is `filter()`, which returns rows that meet specified condition(s). Each condition is a logical test performed on a column. This will results in a vector of `TRUE` and `FALSE` values, and only the rows where the test evaluates to `TRUE` will be returned!
+The second primary subsetting function is `filter()`, which returns rows that meet specified condition(s). Each condition is a logical test performed on a row This will results in a vector of `TRUE` and `FALSE` values, and only the rows where the test evaluates to `TRUE` will be returned!
 
 ![](figures/dplyr_filter.jpeg){width=100%}
 <p style="font-size:6pt">Artwork by @allison_horst</p>
@@ -1581,11 +1593,13 @@ mtcars2 %>%
 </tbody>
 </table>
 
+
+
 ::: {.rmdimportant}
 **This filters the dataframe to return only rows where `gear` has a value of 4.**
 :::
 
-Any evaluative operator can be used in the conditions. The test conditions only need to result in `TRUE` or `FALSE`:
+Any comparison operator can be used in the conditions. The test conditions only need to result in `TRUE` or `FALSE`:
 
 
 ```r
@@ -1748,6 +1762,8 @@ mtcars2 %>%
 </tbody>
 </table>
 
+
+
 ::: {.rmdimportant}
 **This filters the dataframe to return only rows where the `gear` column has a value of 4.**
 :::
@@ -1905,6 +1921,8 @@ mtcars2 %>%
   </tr>
 </tbody>
 </table>
+
+
 
 ::: {.rmdimportant}
 **This filters the dataframe to return only rows where the `model` column has the value "Lotus Europa".**
@@ -2110,6 +2128,8 @@ mtcars2 %>%
 </tbody>
 </table>
 
+
+
 ::: {.rmdimportant}
 **This filters the dataframe to return only rows where `cyl` does not have a value of 4 OR `hp` is less than 100.**
 :::
@@ -2306,6 +2326,8 @@ mtcars2 %>%
   </tr>
 </tbody>
 </table>
+
+
 
 ::: {.rmdimportant}
 **This filters the dataframe to return only rows where the value of `model` is "Lotus Europa", "Ferrari Dino", or "Volvo 142E".**
@@ -2780,7 +2802,7 @@ mtcars2 %>%
 **This modifies the data in the `mpg` column to be of *character*, and the data in the `cyl` column to be a factor. The output of this is then piped to `glimpse()` so the types of each column will be displayed.**
 :::
 
-You can see from this output that all the numbers in `mpg` have quotes around them. Also, it is labeled "<chr>" and not "<dbl>". While the raw data for `cyl` look unchanged, you can see it now says "<fct>".
+You can see from this output that all the numbers in `mpg` have quotes around them. Also, it is labeled "\<chr\>" and not "\<dbl\>". While the raw data for `cyl` look unchanged, you can see it now says "\<fct\>".
 
 <!-- <div class="panel panel-success"> -->
 <!--   <div class="panel-heading">**EXERCISE 16**</div> -->
@@ -2847,7 +2869,12 @@ mtcars2 %>%
 
 <img src="Manip2_files/figure-html/unnamed-chunk-55-1.png" width="672" />
 
-The x-axis has a sensible arrangement, but this 1. is a function of the fact that the factors happen to be numbers, 2. is not particularly aesthetically pleasing when looking at the actual bars. The bars themselves have an inherent ordering and it may make more sense to organize them as such. This can be accomplished using `fct_infreq()`, which will reorder the levels of a factor **in** their **freq**uency of occurrence (with highest frequency first).
+The x-axis has a sensible arrangement, but this: 
+
+1. is a function of the fact that the factors happen to be numbers
+2. is not particularly aesthetically pleasing when looking at the actual bars. 
+
+The bars themselves have an inherent ordering and it may make more sense to organize them as such. This can be accomplished using `fct_infreq()`, which will reorder the levels of a factor **in** their **freq**uency of occurrence (with highest frequency first).
 
 
 ```r

@@ -1,4 +1,4 @@
-# Color Theory
+# Color Theory {#Color-Theory}
 
 
 
@@ -52,7 +52,7 @@ Visualizations are composed of different geometric shapes, lines, edges, contour
 
 The following graphs will serve as examples used throughout.
 
-<p class="text-info"> **<u>Note:</u> these are not great visualizations, but will be useful to illustrate some different concepts.**</p>
+<p class="text-info"> **<u>Note:</u> these are not great visualizations in general, but will be useful to illustrate some different concepts.**</p>
 
 
 ```r
@@ -353,7 +353,7 @@ Here, the `midpoint` is set to the mean value for `flipper_length_mm`. You shoul
 
 ## Pre-defined Color Scales
 
-As you may have realized through the practice exercises, it can be quite difficult to create a good color scale from scratch that is both perceptually uniform and aesthetically pleasing. Fortunately, R has a number of pre-defined color scales that can be used. Some of these are built-in to base R and ggplot, and others can be added from other packages and libraries.
+It can be quite difficult to create a good color scale from scratch that is both perceptually uniform and aesthetically pleasing. Fortunately, R has a number of pre-defined color scales that can be used. Some of these are built-in to base R and ggplot, and others can be added from other packages and libraries.
 
 ### Built-in
 
@@ -598,7 +598,7 @@ plot_bar +
 
 The issue of colorblind friendly palettes was mentioned above and how there is almost no good reason to ever not use a colorblind friendly palette. It can be hard to determine what palettes are colorblind friendly. There are some good resources to help you see how your visualization would look in different forms of colorblindness. One of them is called `cvd_emulator()` from the colorspace package (more on this below). Others are available [online](https://www.vischeck.com/vischeck/vischeckImage.php). 
 
-An alternative to selecting a color palette and then checking to see whether it is colorblind friendly is to just choose a palette specifically designed to be interpretable and effective under a variety of different color vision types (typical and different forms of color blindness). These come from the `viridis` package, which was introduced earlier!
+An alternative to selecting a color palette and then checking to see whether it is colorblind friendly is to just choose a palette specifically designed to be interpretable and effective under a variety of different color vision types (typical and different forms of color blindness). These come from the `viridis` package.
 
 ![](figures/r_viridis.png){width=100%}
 <p style="font-size:8pt">Source: [viridis documentation](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html)</p>
@@ -660,12 +660,12 @@ hcl_palettes()
 #> Names: Purple-Blue, Red-Purple, Red-Blue, Purple-Orange,
 #>        Purple-Yellow, Blue-Yellow, Green-Yellow,
 #>        Red-Yellow, Heat, Heat 2, Terrain, Terrain 2,
-#>        Viridis, Plasma, Inferno, Dark Mint, Mint,
-#>        BluGrn, Teal, TealGrn, Emrld, BluYl, ag_GrnYl,
-#>        Peach, PinkYl, Burg, BurgYl, RedOr, OrYel,
-#>        Purp, PurpOr, Sunset, Magenta, SunsetDark,
-#>        ag_Sunset, BrwnYl, YlOrRd, YlOrBr, OrRd,
-#>        Oranges, YlGn, YlGnBu, Reds, RdPu, PuRd,
+#>        Viridis, Plasma, Inferno, Rocket, Mako, Dark
+#>        Mint, Mint, BluGrn, Teal, TealGrn, Emrld,
+#>        BluYl, ag_GrnYl, Peach, PinkYl, Burg, BurgYl,
+#>        RedOr, OrYel, Purp, PurpOr, Sunset, Magenta,
+#>        SunsetDark, ag_Sunset, BrwnYl, YlOrRd, YlOrBr,
+#>        OrRd, Oranges, YlGn, YlGnBu, Reds, RdPu, PuRd,
 #>        Purples, PuBuGn, PuBu, Greens, BuGn, GnBu,
 #>        BuPu, Blues, Lajolla, Turku, Hawaii, Batlow
 #> 
@@ -731,7 +731,7 @@ While more stark in the first comparison and more subtle in the second, it is cl
 
 **"Why use colorspace at all then? You just showed me what it can do and then told me not to use it..."**
 
-Great question! There are three noteworthy things you can do with colorspace that are important here. One will be universally useful, while the other two will probably only be useful if you are *REALLY* into color stuff. That is included here for those interested, but can be skipped by those who are not.
+Great question! There are three noteworthy things you can do with colorspace that are important here. One will be universally useful, while the other two will probably only be useful if you are *REALLY* into color stuff. That is included here for those interested, but can be skipped by those who are not (click the button to show that information).
 
 1. You can make quick and dirty demo plots to test out your color palettes with the `demoplot()` function.
 

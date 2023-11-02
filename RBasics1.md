@@ -18,7 +18,7 @@ To start, there are some simple and practical considerations:
     
 ![](figures/GUI-vs-code.png){width=100%}
 
-These are all important, however, one of the main reasons to use a programming language to accomplish your main tasks in Social Sciences is for *Reproducibility*.
+These are all important, however, one of the main reasons to use a programming language to accomplish your main tasks in Data Science and Social Sciences is for *Reproducibility*.
 
 Excel and the conventional statistics software like SPSS use a point-and-click GUI, and thus lack a simple way to document and share your analyses. This makes repeating or editing your work later very hard as you will need to rely on memory and repetition. **It is hard to work backwards from the end result and see how you arrived there because it is not documented anywhere.** You will have to "reinvent the wheel" to perform the same analysis across different data sets. R is an open-source interpreted *programming language*. Instead of pointing and clicking through some software to accomplish your tasks, you write code that will execute them. All the code you write is read and evaluated line by line in documents you save. This has some very practical consequences for you:
 
@@ -48,7 +48,7 @@ So why R in particular instead of any other programming language?
 
 ### Base R vs RStudio
 
-When talking about R, what is being referred to is the programming language R itself. You use RStudio to help write and use R code. RStudio is an Integrated Development Environment (IDE). Basically, it provides an interface to make writing and using R code easier.
+When talking about R, what is being referred to is the programming language R itself. You use RStudio to help write and use R code. RStudio is an Integrated Development Environment (IDE). Basically, it provides an interface to make writing and using R code easier. An analogy here is how you use Microsoft Word or Google Docs to write a paper. RStudio is the interface you use to do the work (write the essay/code file).
 
 * R itself can be downloaded [here](https://www.r-project.org/).
 * RStudio can be downloaded [here](https://www.rstudio.com/products/rstudio/download/#download).
@@ -66,13 +66,13 @@ This is the contents of your file where you write all of your code. This is usua
 
 <span style="font-size:18.0pt"><u>**Console**</u></span>
 
-This is where all code is executed/ran, and where the output of that code appears after running. You can run a line of code from your file by clicking on that line and pressing command+enter for OSX, or control+enter for windows.
+This is where all code is executed/run, and where the output of that code appears after running. You can run a line of code from your file by clicking on that line and pressing command+enter for OSX, or control+enter for windows.
 
 ![](figures/rmd_console.png){width=100%}
 
 <span style="font-size:18.0pt"><u>**Environment**</u></span>
 
-This is where all your defined objects are, more on this later.
+This is where all your defined objects and variables are, more on this later.
 
 ![](figures/rmd_environment.png){width=100%}
 
@@ -86,19 +86,24 @@ This is where any graphs/visualizations you make will appear (under **plots**), 
 
 Looking at a default white screen for a long time can put a lot of strain on your eyes. RStudio comes with a lot of different themes you can apply by going to:
 
-preferences ->  appearance. I personally use a [custom theme](https://github.com/patrickshox/Mojave-Dark-RStudio-Theme) called "Mojave Dark" (the one you see in the screenshots is called "Cobalt"). What theme to use is personal preference.
+preferences ->  appearance. 
 
-Additionally, there are two other settings tweaks to make. Go to preferences and then...
+I personally use a [custom theme](https://github.com/patrickshox/Mojave-Dark-RStudio-Theme) called "Mojave Dark" (the one you see in the screenshots is called "Cobalt"). What theme to use is personal preference.
+
+Additionally, there are three other settings tweaks to make. Go to preferences and then...
 
 1. R Markdown -> deselect "show output inline for all R markdown documents"
-2. Code -> Display -> check Rainbow Parentheses
+2. Code -> Display -> check "Enable preview of named and hexadecimal colors"
+3. Code -> Display -> check "Use Rainbow Parentheses"
+
+
 
 ### Different types of files {#file-types}
 
 There are three main types of R files. 
 
 1. R scripts ("fileName.r") which contain only R code. 
-2. R markdown notebooks ("fileName.rmd") which contain text, code, and outputs.
+2. R markdown notebooks ("fileName.rmd") which contain plain text, R code, markdown/html code, and outputs.
     
 ![](figures/rmarkdown_rockstar.png){width=100%}
 <p style="font-size:6pt">Artwork by @allison_horst</p>
@@ -107,7 +112,7 @@ There are three main types of R files.
   
 You will use markdown files in this class because they enable you to more easily annotate your code and create literate programming documents. They also allow you to easily abide by a general programming philosophy called **"separation of concerns,"** which says code should be organized into distinct sections, each handling a specific task. Doing this enables you to quickly navigate your code and know where to look if something is not working as intended. 
 
-Markdown files can also be used to create documents that help communicate what you are doing in your data analysis pipeline. If you use Microsoft Word, then every time a figure or result changes, you have to go through and copy/paste a bunch of stuff, make a million changes throughout, save new files, it is a nuisance and often error prone. R Markdown files are living, breathing documents. Figures and results are automatically updated if the data is changed. Also, everything is in one place. In fact, what you are looking at here is the output of a markdown file!
+Markdown files can also be used to create documents that help communicate what you are doing in your data analysis pipeline. If you use Microsoft Word, then every time a figure or result changes, you have to go through and copy/paste a bunch of stuff, make a million changes throughout, save new files, it is a nuisance and often error prone. R Markdown files are living, breathing documents. Figures and results are automatically updated if the data is changed. Also, everything is in one place. In fact, what you are looking at here is the output of a markdown file. This entire textbook was made in RStudio with markdown files!
 
 ![](figures/rmarkdown_wizards.png){width=100%}
 
@@ -130,9 +135,7 @@ Markdown files themselves have 2 components:
 
 You put code inside chunks, text outside. You can comment out text by starting the line with a hashtag. Comments are text that is ignored by R when running your code.
 
-You create a code chunk by putting three back-ticks ( ``` ) on two lines with a break between them,
-
-And adding a set of curly brackets {} with an "r" in it next to the first set of back ticks: ```{r}
+You create a code chunk by putting three back-ticks ( \`\`\` ) on two lines with a break between them, and adding a set of curly brackets \{ \} with an "r" in it next to the first set of back ticks: \`\`\`\{\r\}
 
 ![](figures/rmd1.png){width=100%}
 

@@ -2,7 +2,7 @@
 
 
 
-Using R effectively goes beyond things like implementing and adhering to proper style and syntax guidelines. It also means developing simple workflows that foster collaboration and are reproducible. This section covers some foundational tools to develop a functional and reproducible Social Sciences workflow.
+Using R effectively goes beyond things like implementing and adhering to proper style and syntax guidelines. It also means developing simple workflows that foster collaboration and are reproducible. This section covers some foundational tools to develop a functional / reproducible Data Science or Social Sciences workflow.
 
 ## R Projects
 
