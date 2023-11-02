@@ -33,6 +33,7 @@ jobs:
       
       - name: install packages missed by renv
         run: |
+          R -e 'install.packages("bookdown")'
           R -e 'install.packages("knitr")'
           R -e 'install.packages("rmarkdown")'
           R -e 'install.packages("tidyverse")'
