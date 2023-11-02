@@ -29,10 +29,29 @@ jobs:
         run: |
           R -e 'install.packages("MASS")'
 
-      - uses: r-lib/actions/setup-renv@v2
+#      - uses: r-lib/actions/setup-renv@v2
       
       - name: install packages missed by renv
         run: |
+          R -e 'install.packages("knitr")'
+          R -e 'install.packages("rmarkdown")'
+          R -e 'install.packages("tidyverse")'
+          R -e 'install.packages("ggplot2")'
+          R -e 'install.packages("plyr")'
+          R -e 'install.packages("dplyr")'
+          R -e 'install.packages("grid")'
+          R -e 'install.packages("scales")'
+          R -e 'install.packages("palmerpenguins")'
+          R -e 'install.packages("kableExtra")'
+          R -e 'install.packages("RColorBrewer")'
+          R -e 'install.packages("ggforce")'
+          R -e 'install.packages("hexbin")'
+          R -e 'install.packages("ggExtra")'
+          R -e 'install.packages("ggridges")'
+          R -e 'install.packages("patchwork")'
+          R -e 'install.packages("colorspace")'
+          R -e 'install.packages("viridis")'
+          R -e 'install.packages("mosaic")'
           R -e 'install.packages("bslib")'
           R -e 'install.packages("downlit")'
           R -e 'install.packages("xml2")'
